@@ -13,7 +13,7 @@
 - [Website](http://sonatakatt.com/)
 - [Resume](https://drive.google.com/file/d/0B_k0GN496C_0dmtGeWt5YjVLOHdLczR0d296bGxOczMzSHJB/view)
 
-## About Jane
+## About Sonata
 
 Sonata is an undergraduate Computer Science Student at the University of Toronto. She has experience working as a full-stack software developer using a range of web development frameworks such as .NET, Node, React, and Redux. She is Syrian Canadian. She is not named after a car.
 
