@@ -15,7 +15,7 @@
 
 ## About Sonata
 
-Sonata is an undergraduate Computer Science Student at the University of Toronto. She has experience working as a full-stack software developer using a range of web development frameworks such as .NET, Node, React, and Redux. She is Syrian Canadian. She is not named after a car.
+Sonata is an undergraduate Computer Science Student at the University of Toronto. She has experience working as a full-stack software developer using a range of web development frameworks such as .NET, Node, React, and Redux. She is Syrian Canadian and is not named after a car.
 
 ## Strengths
 
@@ -25,6 +25,6 @@ Sonata is an undergraduate Computer Science Student at the University of Toronto
 
 ## Weaknesses
 
-- Fear of public speaking
-- Overly self-critical
-- Can easily get distracted
+- Public speaking
+- Less efficient when there is too much context switching
+- Can lose focus on the goal by concentrating on less relevant details
