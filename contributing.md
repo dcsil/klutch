@@ -26,6 +26,6 @@ Instead of maintaining a separate release branch, we will create **Release Tags*
 
 The commit that represents a specific release is tagged with a tag named **???.**
 
-**TODO: figure out tags naming conventions**
+[**TODO: figure out tags naming conventions**](https://github.com/dcsil/klutch/issues/2)
 
 
