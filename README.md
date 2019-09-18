@@ -1,7 +1,9 @@
 
 # klutch
 
-![Team Logo](./logo.png)
+<p align="center">
+  <img src="./logo.png" alt="Sublime's custom image"/>
+</p>
 
 Table of Contents
 ---
