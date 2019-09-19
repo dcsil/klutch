@@ -13,7 +13,7 @@
 
 ## About Andrea
 
-Andrea is a budding entrepreneur that enjoys poking around to find holes or pain points in life and exploit them by either creating applications or investigating how certain sites work. A Singaporean, she moved to Canada to intern at ecobee - a home automation startup - where she works as a security developer under a school program known as NUS Overseas Colleges. Comfortable with full-stack development and general web security, she looks forward to contribute cntensively and learn more about the business side of entrepreneurship.
+Andrea is a budding entrepreneur that enjoys poking around to find holes or pain points in life and exploit them by either creating applications or investigating how certain sites work. A Singaporean, she moved to Canada to intern at ecobee - a home automation startup - where she works as a security developer under a school program known as NUS Overseas Colleges. Comfortable with full-stack development and general web security, she looks forward to contribute intensively and learn more about the business side of entrepreneurship.
 
 ## Strengths
 
