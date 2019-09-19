@@ -25,4 +25,4 @@ Andrea is a budding entrepreneur that enjoys poking around to find holes or pain
 
 - Has a roundabout way of coding (which might not be effective)
 - Rather awkward when presenting in front of large group
-- Have a bad habit of asking for help only when its too late
+- Has a bad habit of asking for help only when its too late
