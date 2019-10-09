@@ -22,6 +22,7 @@ Therefore, during emergencies, nurses would write down long and narrative notes 
 It was estimated that nurses spend between 2-4 hours charting out of their 12 hour shifts. The opportunity cost of not making this process more efficient is massive.
  Therefore, our aim is to let nurses spend more time where it counts the most: taking care of patients.
 
+Our product will be an application that leverages Optical Character Recognition (OCR) technology to convert nurses' handwriting into machine-encoded text. Additionally, we will utilize Natural Language Processing (NLP) to retrieve meaningful information from this digital document and input them automatically to the hospital's EMR system.
  Since different hospitals have different EMRs, we've decided to target one EMR, Cerner, for our MVP.
 
  The reason why we chose Cerner was because our subject matter expert works with Cerner. This would be a great advantage for our user research. Also, Cerner has an API we can use to integrate our app with their platform, which would help with development.
