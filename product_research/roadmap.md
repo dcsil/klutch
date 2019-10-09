@@ -12,7 +12,7 @@ For our MVP, we will be focusing on creating an application that will be ready t
 
 Link to the more detailed process [here](./cerner_integration_process.md).
 
-We decided to create our roadmap based on the “Time Horizons” model, and we have divided our tasks into three categories:
+We decided to create our roadmap based on the [“Time Horizons”](https://www.mindtheproduct.com/growing-up-lean/) model, and we have divided our tasks into three categories:
 
 ### Current
 - **What:** these are the tasks we aim to accomplish for the first version of our prototype.
