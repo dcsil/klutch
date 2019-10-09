@@ -1,0 +1,9 @@
+# Cerner Integration Process
+
+As outlined by a Cerner representative:
+
+1. Developer builds an app against [our FHIR sandbox API](https://fhir.cerner.com/), tests their OAuth and SMART workflows on code.cerner.com’s tutorial and [submits app for review](https://code.cerner.com/submit). Note, this submission for is only for Cerner’s awareness of your application, company, and to provide us with an idea of your stage of app development.  This does not constitute submission of your application for program membership, supplier relationship or app validation. These items are handled directly by our Business Development team, who will review the application and contact you with next steps. Note, they will respond to submissions in the order they are received and based on other commitments.
+2. Developer has web-ex with internal Cerner team that we will pull together. Developer walks Cerner through the app as it calls our sandbox FHIR api, discusses workflow and functionality, and articulates gaps. 
+3. Developer joins Cerner developer program through contractual process. Our developer program fees are in line with developer fees associated with other app ecosystem programs. More information on fees are discussed once your app is submitted and reviewed by our business team.
+4. Developer is given PowerChart (Cerner EMR) access to finish testing embedded SMART app launch, and Developer app is taken through the Cerner validation process. The validation process has four main categories of focus, which verify that your solution provides our clients with a great experience: security, functionality, user experience and operations. The length of this process is dependent on the developer.
+5. Developer app is placed in app gallery on code.cerner.com and is capable of being turned on by Cerner in a live client domain, at that client’s request, and post-contracting between Developer and client.
