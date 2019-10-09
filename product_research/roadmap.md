@@ -8,7 +8,7 @@ For our MVP, we will be focusing on creating an application that will be ready t
   
     **Note:** to clarify, Cerner is an enterprise application software. Therefore, getting access to their software could be challenging without buying their entire system, which could cost millions ([HIT Consultant, 2013](https://hitconsultant.net/2013/01/03/the-costly-darkside-of-emr-implementations/#.XZ1Df-dKjOR)). This is why we need to go through this process to properly get verified by Cerner. 
 
-4. Our application will be taken through the full Cerner validation process, which includes functionality, security, user experience, and operations testin
+4. Our application will be taken through the full Cerner validation process, which includes functionality, security, user experience, and operations testing
 
 Link to the more detailed process [here](./cerner_integration_process.md).
 
