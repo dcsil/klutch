@@ -24,7 +24,7 @@ It was estimated that nurses spend between 2-4 hours charting out of their 12 ho
 
  Since different hospitals have different EMRs, we've decided to target one EMR, Cerner, for our MVP.
 
- The reason why we chose Cerner was because our subject matter expert works with Cerner. This would be a great advantage for our user research. Also, Cerner has an API we can use to connect our app with their platform which would help with development.
+ The reason why we chose Cerner was because our subject matter expert works with Cerner. This would be a great advantage for our user research. Also, Cerner has an API we can use to integrate our app with their platform, which would help with development.
 
  We believe our app will disrupt the EMR health app market because there currently aren't any EMR OCR integrations that aim to solve the problem we are targeting.
 
