@@ -9,7 +9,7 @@ We have decided to target the healthcare industry. Our product is a B2B solution
 
 Hospitals are our main target customers, and our end users are nurses that interact most with the EMR system.
 
-The problem we are trying to solve is related to a nurse's emergency procedure workflow. A nurse must document all of a patient's information through inserting the data to an electronic chart (EMR). This manual data entry component makes
+The problem we are trying to solve is related to a nurse's emergency procedure workflow. A nurse must document all of a patient's information by inputting data to an electronic chart (EMR). This manual data entry component makes
 the process of documentation long and inefficient. 
 
 Therefore, during emergencies, nurses write down long and narrative notes about what they observed during an emergency, and manually input whatever they have written into the hospital’s electronic medical record (EMR) system after the emergency is over.
