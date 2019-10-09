@@ -31,4 +31,4 @@ Our product will be an application that leverages Optical Character Recognition 
 
  As for our team, Shawnee's Machine Learning expertise will help us when building NLP and OCR models. Andrea's security background will be an asset with building any health app given how security must always be a top priority when dealing with patient data. Jemin's UX/UI experience will help us build a useable customer facing app. And finally, Sonata's experience with app development will be important for the product's technical infrastructure. All in all, we have a strong lineup of technical expertise to develop our product in the market.
 
-One thing our team lacks is that none of us have first hand experience in the healthcare industry. We plan on mitigating this by doing extensive user research along the way.
+One thing our team lacks is that none of us have first-hand experience in the healthcare industry. We plan on mitigating this by conducting extensive user research along the way and consulting our subject matter experts regularly in the decision-making process.
