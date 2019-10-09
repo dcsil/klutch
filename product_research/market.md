@@ -7,7 +7,7 @@ We have decided to target the healthcare industry. Our product is a B2B solution
 ## Market Opportunity
 
 
-Hospitals are our main target customers, and our end users are nurses that interact most with the charting system.
+Hospitals are our main target customers, and our end users are nurses that interact most with the EMR system.
 
 The problem we are trying to solve is related to a nurse's emergency procedure workflow. A nurse must document all of a patient's information through inserting the data to an electronic chart (EMR). This manual data entry component makes
 the process of documentation long and inefficient. 
