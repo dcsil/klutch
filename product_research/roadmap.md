@@ -4,7 +4,7 @@ For our MVP, we will be focusing on creating an application that will be ready t
 
 1. We must first develop our application locally and have it ready for integration. 
 2. The next step is to integrate our application with Cerner’s open-source API through OAuth and submit it for review. This is done to ensure security measures when integrating with their platform.
-3. Our application will then be put through a review process by Cerner’s Business Development team as well as developers. Once it has been approved, only then we will be granted full access to the Cerner software.
+3. Our application will then be put through a review process by Cerner’s Business & Development teams. Once it has been approved, only then we will be granted full access to the Cerner software.
   
     **Note:** to clarify, Cerner is an enterprise application software. Therefore, getting access to their software could be challenging without buying their entire system, which could cost millions ([HIT Consultant, 2013](https://hitconsultant.net/2013/01/03/the-costly-darkside-of-emr-implementations/#.XZ1Df-dKjOR)). This is why we need to go through this process to properly get verified by Cerner. 
 
