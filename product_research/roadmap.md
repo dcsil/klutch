@@ -3,7 +3,7 @@
 For our MVP, we will be focusing on creating an application that will be ready to be integrated with Cerner, which is an EMR system that controls 23.4% of hospitals in Canada as of 2018 (Canadian Institute for Health Information, 2018). Therefore, our product roadmap will be largely influenced by Cerner’s SMART app integration process. Based on our conversation with one of Cerner’s representatives, the process is as follows:
 
 1. We must first develop our application locally and have it ready for integration. 
-2. The next step is to integrate our application with Cerner’s open-source API through OAuth and submit it for review. This is done to ensure security measures when integration with their platform.
+2. The next step is to integrate our application with Cerner’s open-source API through OAuth and submit it for review. This is done to ensure security measures when integrating with their platform.
 3. Our application will then be put through a review process by Cerner’s Business Development team as well as developers. Once it has been approved, only then we will be granted full access to the Cerner software.
   
     **Note:** to clarify, Cerner is an enterprise application software. Therefore, getting access to their software could be challenging without buying their entire system, which could cost millions ([HIT Consultant, 2013](https://hitconsultant.net/2013/01/03/the-costly-darkside-of-emr-implementations/#.XZ1Df-dKjOR)). This is why we need to go through this process to properly get verified by Cerner. 
