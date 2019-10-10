@@ -24,8 +24,5 @@ The naming convention of our feature branch adopts the following format: **a#/fe
 ### Release Tags
 Instead of maintaining a separate release branch, we will create **Release Tags** for each release that corresponds to an assignment submission. The release tags are made in the master branch once all features are deemed ***stable***.
 
-The commit that represents a specific release is tagged with a tag named **???.**
-
-[**TODO: figure out tags naming conventions**](https://github.com/dcsil/klutch/issues/2)
 
 
