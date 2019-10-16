@@ -15,7 +15,7 @@ Our test set should contain users with some combination of the following criteri
 This is our current process for each user testing session:
 
 1. Ask for their consent to share and use their feedback and/or any other recorded information.
-2. Give each user a list of tasks (mentioned below) to complete on the Invision prototype mock-up
+2. Give each user a list of tasks (mentioned below) to complete on the InVision prototype mock-up
 3. Make the user think aloud when performing each task
 4. Document feedback (ie. take notes during the session, video record their interactions on the mockup, voice record their feedback)
 5. Conclude the session with a list of general feedback questions.
