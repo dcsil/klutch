@@ -21,7 +21,7 @@ This is our current process for each user testing session:
 5. Conclude the session with a list of general feedback questions.
 
 ### Current Tasklist
-This is our task list based on our current [mockup](https://projects.invisionapp.com/d/main/default/#/console/18668440/388407307/preview):
+This is our task list based on our current [mockup](https://invis.io/YAUCQOLQBTR):
 1. Take a picture, view information processed from the picture, then send it to the Cerner server.
 2. Take a picture, retake the picture, view information processed from the picture, then send to Cerner server.
 4. Take a picture, view information processed from the picture, retake picture, then send to Cerner server.
