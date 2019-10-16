@@ -31,4 +31,4 @@ This is our task list based on our current [mockup](https://invis.io/YAUCQOLQBTR
 - Try to consolidate the feedback from the sessions and summarize the results.
 - Brainstorm ways about how the mockup can be improved
 - Create new action items
-- Add new action items created to your roadmap
+- Update roadmap based on these new action items
