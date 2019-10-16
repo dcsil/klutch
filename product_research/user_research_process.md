@@ -2,7 +2,7 @@
 
 ## Find suitable set of test users
 
-Due to how elementary our current customer journey is, we can use feedback from a wide range of users that might not exactly match our end user (nurses) but can still provide valuable feedback regardless.
+Due to the simple nature of our current user journey, we can use feedback from a wide range of users that might not exactly match our end user (nurses) but can still provide valuable feedback regardless.
 
 Our test set should contain users with some combination of the following criteria:
 
