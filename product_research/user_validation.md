@@ -24,7 +24,7 @@ On this page, Jane can then confirm if the information matches what she wrote, a
 This entire process can be done with just a few taps on Jane's phone, which streamlines the original process of manual data entry and consquently fulfills her motivation for efficiency and increased productivity. Hence, our product allows nurses to save more time, and spend it where it matters the most: patient care.
 
 ## User Research
-We will follow this [process]() when conducting our user research. Since we did not have any immediate connections to real nurses, we have decided to involve a wide range of users that closely match our nurse user persona. For example, these include individuals with Bachelor's or advanced degrees, as well as individuals with some experience in the healthcare industry (e.g., research labs, clinics, etc.).
+We will follow this [process](./user_research_process.md) when conducting our user research. Since we did not have any immediate connections to real nurses, we have decided to involve a wide range of users that closely match our nurse user persona. For example, these include individuals with Bachelor's or advanced degrees, as well as individuals with some experience in the healthcare industry (e.g., research labs, clinics, etc.).
 
 We managed to conduct 7 research sessions across a diverse group of users. The majority of our participants managed to complete most of the tasks quickly and smoothly. However, we did find a recurring theme in the feedback that we received from our users.
 
