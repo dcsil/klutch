@@ -26,10 +26,25 @@ This entire process can be done with just a few taps on Jane's phone, which stre
 ## User Research
 We will follow this [process]() when conducting our user research. Since we did not have any immediate connections to real nurses, we have decided to involve a wide range of users that closely match our nurse user persona. For example, these include individuals with Bachelor's or advanced degrees, as well as individuals with some experience in the healthcare industry (e.g., research labs, clinics, etc.).
 
-Research summary: TODO
+We managed to conduct 7 research sessions across a diverse group of users. The majority of our participants managed to complete most of the tasks quickly and smoothly. However, we did find a recurring theme in the feedback that we received from our users.
+
+All of them mentioned that they did not have a good sense of “where” they were in their journey through the application. In other words, it was hard to anticipate what the next steps were after they have finished a certain task. For example, one participant mentioned that they did not expect to proceed directly to the camera screen after they entered their Cerner system ID, because the button that they tapped on only says “Enter”. A similar concern was observed in other sessions, too, where some of our participants indicated that the “Send to server” button was not descriptive enough. This does not tell them what was going to happen to their picture after they tapped the button.
+
+Additionally, our participants raised a number of thoughtful questions for us to consider. For instance, what if the user wanted to upload multiple pages of the same note? How are we going to handle a substantial amount of information and display everything in one, tiny screen? Furthermore, some participants also pointed out some key issues that we missed. For example, one user was disappointed because they were not able to re-examine the picture they took after it has been sent to our server, while another user expressed a strong need for uploading their own pictures from their phone library.
 
 ## Research Thoughts
-TODO
+Conducting user testing sessions has been very useful in identifying design flaws could potentially hinder our users’ journey. We have identified multiple issues that were not considered during the initial stages of brainstorming. Despite this, we were still able to verify based on the feedback that our solution does, in fact, tackle the problem we are trying to solve. After interacting with the application, our participants managed to develop a solid understanding of the application’s purpose, and they believed it will benefit nurses in their day-to-day responsibilities by saving time.
+
+However, we also learned from our participants that our solution does not solve the problem entirely. To recap, there were two time-consuming elements in our problem space:
+
+1. Nurses having to write every single information down on paper
+2. Nurses having to manually input the written information into the hospital’s electronic charting system
+
+Our research participants brought up the fact that nurses will still face the first problem before they could use our application to transcribe their notes. They suggested that the problem could instead be solved by digitalizing the entire note-taking process from start to finish (i.e., typing the notes on a phone/iPad/tablet instead of writing them down). However, this solution is very expensive because it implies that each room should have and maintain a designated digital writing device. Our product, in comparison, is way less expensive and it still solves the manual data entry portion of the problem.
+
+Nevertheless, there are a number of ways we could improve our mockup based on our users’ feedback. Our first priority is to develop a more intuitive user journey by making our buttons more descriptive. The statements should clearly describe the actions that the user is going to perform next. Additionally, we could also add an option for users to go through a “Tutorial” session before they start using the app. Next, we will address the new issues brought up by our research participants and develop new features to solve them. These include implementing the “Upload your own picture” feature, as well as a “Review” page where users can re-assess the picture they took before and after it has been processed.
+
+Finally, in terms of the design, we generally received positive feedback from our users. A lot of them really liked the simple and clean interface, although some of them agreed that it could use a bit more colour. Moreover, we should strive to deliver consistency in the way we present certain elements in the mockup. This includes using the same font throughout the application, as well as sticking with one shape for the buttons (rectangular vs. rounded rectangular).
 
 ## Build Plan
 TODO
