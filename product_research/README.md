@@ -7,5 +7,5 @@ Table of Contents
 ---
 
 - [Market](./market.md)
-- [User Validation](./user_validation.md)
-- [Roadmap](./klutch_roadmap_revised.png)
+- [User Validation](./user_research/user_validation.md)
+- [Roadmap](./user_research/klutch_roadmap_revised.png)
