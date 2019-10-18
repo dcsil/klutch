@@ -8,4 +8,4 @@ Table of Contents
 
 - [Market](./market.md)
 - [User Validation](./user_validation.md)
-- [Roadmap](./roadmap.md)
+- [Roadmap](./klutch_roadmap_revised.png)
