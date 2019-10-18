@@ -32,6 +32,8 @@ All of them mentioned that they did not have a good sense of “where” they we
 
 Additionally, our participants raised a number of thoughtful questions for us to consider. For instance, what if the user wanted to upload multiple pages of the same note? How are we going to handle a substantial amount of information and display everything in one, tiny screen? Furthermore, some participants also pointed out some key issues that we missed. For example, one user was disappointed because they were not able to re-examine the picture they took after it has been sent to our server, while another user expressed a strong need for uploading their own pictures from their phone library.
 
+To view our research notes and media assets (videos, voice recordings), please refer to our [user research asset folder](https://drive.google.com/open?id=1JLRT-CCJ0Ny9S3Wysdl-pQ5-NirXEqVX).
+
 ## Research Thoughts
 Conducting user testing sessions has been very useful in identifying design flaws could potentially hinder our users’ journey. We have identified multiple issues that were not considered during the initial stages of brainstorming. Despite this, we were still able to verify based on the feedback that our solution does, in fact, tackle the problem we are trying to solve. After interacting with the application, our participants managed to develop a solid understanding of the application’s purpose, and they believed it will benefit nurses in their day-to-day responsibilities by saving time.
 
