@@ -47,4 +47,6 @@ Nevertheless, there are a number of ways we could improve our mockup based on ou
 Finally, in terms of the design, we generally received positive feedback from our users. A lot of them really liked the simple and clean interface, although some of them agreed that it could use a bit more colour. Moreover, we should strive to deliver consistency in the way we present certain elements in the mockup. This includes using the same font throughout the application, as well as sticking with one shape for the buttons (rectangular vs. rounded rectangular).
 
 ## Build Plan
-TODO
+We have updated our roadmap based on the feedback we received from the user testing.
+
+<img src="./klutch_roadmap_revised.png" width="1000">
