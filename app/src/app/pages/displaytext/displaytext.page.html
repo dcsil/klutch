@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>displaytext</ion-title>
+    <ion-title>Captured Image</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <img [src]="selectedImage" *ngIf="selectedImage">
+  <!-- Inputs with labels -->
+  <ion-item>
+      <ion-label position="stacked">Image Text</ion-label>
+      <ion-input value="{{imageText}}"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="goToSuccessPage()" class="button"> Submit </ion-button>
 
 </ion-content>

@@ -1,9 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>success</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
+<ion-content >
+  <div class="main-content">
+    <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
+    <div class="woohoo">Done!</div>
+    <div class="succss-msg">
+      Your notes have been successfully transferred to your selected digital chart.
+    </div>
+    {{val}}
+    <ion-button (click)="goToHome()" class="button"> Back to Home </ion-button>
+  </div>
 
 </ion-content>
