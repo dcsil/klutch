@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
+import { TesseractService } from '../../services/tesseract.service';
+import { TesseractJob } from 'tesseract.js';
+
 @Component({
   selector: 'app-displaytext',
   templateUrl: './displaytext.page.html',
@@ -10,9 +13,10 @@ import { Storage } from '@ionic/storage';
 export class DisplaytextPage implements OnInit {
 
   displayImage: string;
+  tessJob: TesseractJob;
   imageText: string;
 
-  constructor(private router: Router, private storage: Storage) { }
+  constructor(private router: Router, private storage: Storage, private tesseract: TesseractService) { }
 
   ngOnInit() {
     this.storage.get('0').then((val) => {
@@ -21,8 +25,12 @@ export class DisplaytextPage implements OnInit {
     });
   }
 
+  async recognizeImage() {
+    this.tessJob = this.tesseract.recognizeImage(this.displayImage);
+    this.imageText = (await this.tessJob).text;
+  }
+
   goToSuccessPage(){
-    this.storage.set('name', 'Max');
     console.warn("HEo")
     this.router.navigateByUrl(`success`);
 

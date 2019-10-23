@@ -6,8 +6,11 @@
 
 <ion-content>
   <img [src]="displayImage" *ngIf="displayImage">
+
+  <ion-button (click)="recognizeImage()" class="button"> Recognize </ion-button>
+
   <!-- Inputs with labels -->
-  <ion-item>
+  <ion-item *ngIf="imageText">
       <ion-label position="stacked">Image Text</ion-label>
       <ion-input value="{{imageText}}"></ion-input>
   </ion-item>
