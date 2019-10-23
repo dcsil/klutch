@@ -9,12 +9,16 @@ import { Storage } from '@ionic/storage';
 })
 export class DisplaytextPage implements OnInit {
 
-  selectedImage: string;
+  displayImage: string;
   imageText: string;
 
   constructor(private router: Router, private storage: Storage) { }
 
   ngOnInit() {
+    this.storage.get('0').then((val) => {
+      console.log(val);
+      this.displayImage = val;
+    });
   }
 
   goToSuccessPage(){

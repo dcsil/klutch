@@ -21,7 +21,7 @@ export class SuccessPage implements OnInit {
 
   goToHome() {
     console.warn("HEY")
-    this.router.navigateByUrl(`welcome`);
+    this.router.navigateByUrl(``);
   }
 
 }

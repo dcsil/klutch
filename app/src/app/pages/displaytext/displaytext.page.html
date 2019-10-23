@@ -5,8 +5,7 @@
 </ion-header>
 
 <ion-content>
-
-  <img [src]="selectedImage" *ngIf="selectedImage">
+  <img [src]="displayImage" *ngIf="displayImage">
   <!-- Inputs with labels -->
   <ion-item>
       <ion-label position="stacked">Image Text</ion-label>
@@ -15,4 +14,5 @@
 
   <ion-button (click)="goToSuccessPage()" class="button"> Submit </ion-button>
 
+  
 </ion-content>
