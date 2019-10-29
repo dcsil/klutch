@@ -9,19 +9,14 @@ import { Storage } from '@ionic/storage';
 })
 export class SuccessPage implements OnInit {
 
-  val;
-
   constructor(private router: Router, private storage: Storage) { }
 
   ngOnInit() {
-    this.storage.get('name').then((val) => {
-      this.val = val;
-    });
+    
   }
 
   goToHome() {
-    console.warn("HEY")
-    this.router.navigateByUrl(``);
+    this.router.navigateByUrl('');
   }
 
 }

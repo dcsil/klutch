@@ -12,28 +12,19 @@ import { TesseractJob } from 'tesseract.js';
 })
 export class DisplaytextPage implements OnInit {
 
-  displayImage: string;
   tessJob: TesseractJob;
   imageText: string;
 
   constructor(private router: Router, private storage: Storage, private tesseract: TesseractService) { }
 
   ngOnInit() {
-    this.storage.get('0').then((val) => {
-      console.log(val);
-      this.displayImage = val;
+    this.storage.get('1').then((val) => {
+      this.imageText = val;
     });
   }
 
-  async recognizeImage() {
-    this.tessJob = this.tesseract.recognizeImage(this.displayImage);
-    this.imageText = (await this.tessJob).text;
-  }
-
   goToSuccessPage(){
-    console.warn("HEo")
     this.router.navigateByUrl(`success`);
-
   }
 
 }

@@ -1,21 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Captured Image</ion-title>
+  <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="displayimage"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Your Image Text</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img [src]="displayImage" *ngIf="displayImage">
-
-  <ion-button (click)="recognizeImage()" class="button"> Recognize </ion-button>
-
-  <!-- Inputs with labels -->
-  <ion-item *ngIf="imageText">
-      <ion-label position="stacked">Image Text</ion-label>
-      <ion-input value="{{imageText}}"></ion-input>
-  </ion-item>
-
-  <ion-button (click)="goToSuccessPage()" class="button"> Submit </ion-button>
-
-  
+  <ion-card class="ion-card" *ngIf="imageText">
+      <ion-card-content> {{imageText}} </ion-card-content>
+  </ion-card>
+  <ion-button color="dark" (click)="goToSuccessPage()" class="button"> Submit </ion-button>  
 </ion-content>

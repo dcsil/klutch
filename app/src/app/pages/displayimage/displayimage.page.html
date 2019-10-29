@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="dark" class="ion-bar">
+      <ion-buttons slot="start">
+          <ion-back-button class="back-button" defaultHref="welcome"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Your Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-container">
+  <img class="image" [src]="displayImage" *ngIf="displayImage">
+
+  <ion-button round color="dark" (click)="recognizeImage()" class="button"> Recognize </ion-button>
+  
+</ion-content>

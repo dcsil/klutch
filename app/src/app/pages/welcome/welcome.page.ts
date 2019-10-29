@@ -15,9 +15,13 @@ export class WelcomePage implements OnInit {
   cameraSourceType: PictureSourceType;
   selectedImage: string;
 
+  displayImage: string;
+  imageText: string;
+
   constructor(private camera: Camera, private router: Router, private storage: Storage) { }
 
   ngOnInit() {
+    this.storage.clear();
   }
 
   getPicture(srcType) {
@@ -30,10 +34,6 @@ export class WelcomePage implements OnInit {
       this.cameraSourceType = this.camera.PictureSourceType.PHOTOLIBRARY;
     }
 
-    console.log(this.cameraSourceType);
-    // this.router.navigateByUrl(`/displaytext/45`)
-    
-
     this.camera.getPicture({
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -44,10 +44,8 @@ export class WelcomePage implements OnInit {
     }).then((imageData) => {
       // set a key/value
       this.selectedImage = `data:image/jpeg;base64,${imageData}`;
-
       this.storage.set('0', this.selectedImage);
-
-      this.router.navigateByUrl(`displaytext`)
+      this.router.navigateByUrl(`displayimage`)
     });
   }
 

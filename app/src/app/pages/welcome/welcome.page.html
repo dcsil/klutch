@@ -1,12 +1,12 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Welcome!</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-    <ion-button expand="full" (click)="getPicture('CAMERA')">Take a picture</ion-button>
-    <ion-button expand="full" (click)="getPicture('PHOTOLIBRARY')">Upload from library</ion-button>
-
-    <!-- <img [src]="selectedImage" *ngIf="selectedImage"> -->
+<ion-content class="ion-container">
+  <div class="container">
+    <h1 class="header">Welcome!</h1>
+    <h3 class="text">What would you like to do?</h3>
+    <ion-button round color="dark" class="button" (click)="getPicture('CAMERA')">Take a picture of notes</ion-button>
+    <br>
+    <br>
+    <ion-button round color="dark" class="button" (click)="getPicture('PHOTOLIBRARY')">Upload notes from library</ion-button>
+  </div>
 </ion-content>
+
+
