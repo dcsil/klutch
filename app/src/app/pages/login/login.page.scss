@@ -1,0 +1,35 @@
+.button {
+    --border-radius: 40px;
+    --padding-bottom: 25px;
+    --padding-top: 25px;
+    width: 45%;
+}
+
+.buttons-container {
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    margin: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.ion-main-card {
+    height: 285px;
+}
+
+.ion-text-center {
+    font-size: 30px;
+}
+
+.ion-card-label {
+    font-size: 18px;
+}
+
+.logo {
+    display: block;
+    position: relative;
+    float: none;
+    margin-left: 30px;
+}
