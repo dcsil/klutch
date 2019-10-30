@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ActionSheetController, LoadingController } from '@ionic/angular';
+import { NavController, ActionSheetController, LoadingController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Camera, PictureSourceType } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
@@ -18,10 +18,16 @@ export class WelcomePage implements OnInit {
   displayImage: string;
   imageText: string;
 
-  constructor(private camera: Camera, private router: Router, private storage: Storage) { }
+  constructor(private camera: Camera, private router: Router, private storage: Storage,
+    private menu: MenuController) { }
 
   ngOnInit() {
     this.storage.clear();
+  }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
   }
 
   getPicture(srcType) {

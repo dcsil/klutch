@@ -1,4 +1,38 @@
+<ion-header>
+    <ion-toolbar class="main-header" color="dark">
+      <ion-grid>
+          <ion-row>
+            <ion-col class="button" (click)="openFirst()">
+                <ion-icon name="menu" class="icon" size="large"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <ion-title class="main-header__title">Klutch</ion-title>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+<ion-menu side="start" menuId="first">
+    <ion-header>
+        <ion-toolbar color="dark">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+          <ion-list>
+            <ion-item>Account</ion-item>
+            <ion-item>EMR Configuration</ion-item>
+            <ion-item>Report An Issue</ion-item>
+            <ion-item>Contact Us</ion-item>
+          </ion-list>
+        </ion-content>
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>
 <ion-content class="ion-container">
+    
+
   <div class="container">
     <h1 class="header">Welcome!</h1>
     <h3 class="text">What would you like to do?</h3>
