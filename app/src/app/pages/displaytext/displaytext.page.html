@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-card class="ion-card" *ngIf="imageText">
-      <ion-card-content> {{imageText}} </ion-card-content>
+      <ion-textarea class="ion-editable" [(ngModel)]="imageText"></ion-textarea>
   </ion-card>
   <ion-button color="dark" (click)="goToSuccessPage()" class="button"> Submit </ion-button>  
 </ion-content>
