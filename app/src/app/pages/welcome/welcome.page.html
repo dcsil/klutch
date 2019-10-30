@@ -34,12 +34,12 @@
     
 
   <div class="container">
-    <h1 class="header">Welcome!</h1>
-    <h3 class="text">What would you like to do?</h3>
-    <ion-button round color="dark" class="button" (click)="getPicture('CAMERA')">Take a picture of notes</ion-button>
+      <img class="header" class="checkmark" src="../../../assets/icon/file.svg" />
+    <h3 class="text"> Upload your notes </h3>
+    <ion-button round color="dark" class="button" (click)="getPicture('CAMERA')">Camera </ion-button>
     <br>
     <br>
-    <ion-button round color="dark" class="button" (click)="getPicture('PHOTOLIBRARY')">Upload notes from library</ion-button>
+    <ion-button round color="dark" class="button" (click)="getPicture('PHOTOLIBRARY')">Photo library</ion-button>
   </div>
 </ion-content>
 
