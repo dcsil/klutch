@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar class="main-header" color="dark">
+      <ion-grid>
+          <ion-row>
+            <ion-col class="button" (click)="openFirst()">
+                <ion-icon name="menu" class="icon" size="large"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <ion-title class="main-header__title">Klutch</ion-title>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+<ion-menu side="start" menuId="first">
+    <ion-header>
+        <ion-toolbar color="dark">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+          <ion-list>
+            <ion-item>Account</ion-item>
+            <ion-item>EMR Configuration</ion-item>
+            <ion-item>Report An Issue</ion-item>
+            <ion-item>Contact Us</ion-item>
+            <ion-item button="true" type="button" href="">
+              <ion-label>Log Out</ion-label>  
+            </ion-item>
+          </ion-list>
+        </ion-content>
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>
+<ion-content class="ion-container">
+    
+
+  <div class="container">
+      <img class="header" class="checkmark" src="../../../assets/icon/file.svg" />
+    <h3 class="text"> Upload your notes </h3>
+    <ion-button round color="dark" class="button" (click)="getPicture('CAMERA')">Camera </ion-button>
+    <br>
+    <br>
+    <ion-button round color="dark" class="button" (click)="getPicture('PHOTOLIBRARY')">Photo library</ion-button>
+  </div>
+</ion-content>
+
+
