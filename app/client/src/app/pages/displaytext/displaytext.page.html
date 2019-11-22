@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="displayimage"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Your Image Text</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-card" *ngIf="imageText">
+      <ion-textarea class="ion-editable" [(ngModel)]="imageText"></ion-textarea>
+  </ion-card>
+  <ion-button color="dark" (click)="goToSuccessPage()" class="button"> Submit </ion-button>  
+</ion-content>
+<!-- <ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+    <ion-title>Vision</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let vision of (visions | async)">
+      <ion-label>
+        <h2>{{ vision.title }}</h2>
+        <p>{{ vision.reward | currency }}</p>
+      </ion-label>
+      <ion-icon slot="start" icon="rocket" color="primary"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
