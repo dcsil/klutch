@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ActionSheetController, LoadingController, MenuController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
-import { Storage } from '@ionic/storage';
+import { VisionService } from 'src/app/services/vision.service';
 
 @Component({
   selector: 'app-welcome',
@@ -20,11 +19,9 @@ export class WelcomePage implements OnInit {
 
   private win: any = window;
 
-  constructor(private camera: Camera, private router: Router, private storage: Storage,
-    private menu: MenuController) { }
+  constructor(private camera: Camera, private visionService: VisionService, private menu: MenuController) { }
 
   ngOnInit() {
-    this.storage.clear();
   }
 
   openFirst() {
@@ -32,6 +29,14 @@ export class WelcomePage implements OnInit {
     this.menu.open('first');
   }
 
+  /**
+   * This function takes a picture either with a camera
+   * or from the user's photo library, then uploads it
+   * to Firebase storage and database.
+   * 
+   * @param {String} srcType The source for the picture.
+   * @return {void}
+   */
   async getPicture(srcType) {
     if (srcType == 'CAMERA')
     {
@@ -47,37 +52,16 @@ export class WelcomePage implements OnInit {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      sourceType: this.cameraSourceType,
       allowEdit: true,
       saveToPhotoAlbum: false,
       correctOrientation: true
     }
 
     const imageData = await this.camera.getPicture(options)
-    // this.selectedImage = base64;
     this.selectedImage = `data:image/jpeg;base64,${imageData}`;
-    this.storage.set('1', this.selectedImage);
-    this.router.navigateByUrl(`displayimage`);
-
-    // this.camera.getPicture({
-    //   quality: 100,
-    //   destinationType: this.camera.DestinationType.DATA_URL,
-    //   encodingType: this.camera.EncodingType.JPEG,
-    //   mediaType: this.camera.MediaType.PICTURE,
-    //   sourceType: this.cameraSourceType,
-    //   allowEdit: true,
-    //   saveToPhotoAlbum: false,
-    //   correctOrientation: true
-    // }).then((imageData) => {
-    //   // set a key/value
-    //   this.selectedImage = `data:image/jpeg;base64,${imageData}`;
-    //   // let filePath = this.win.Ionic.WebView.convertFileSrc(imageData);
-    //   // this.selectedImage = filePath;
-    //   // console.log(imageData);
-    //   // console.log(this.selectedImage);
-    //   this.storage.set('1', this.selectedImage);
-    //   this.router.navigateByUrl(`displayimage`);
-    // });
+    // this.storage.set('1', this.selectedImage);
+    this.visionService.uploadImage(this.selectedImage)
   }
 
 

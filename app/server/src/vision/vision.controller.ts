@@ -9,7 +9,7 @@ export class VisionController {
     @Get()
     getVision() {
         console.log("GET request was called");
-        return this.visionService.getVision();
+        // return this.visionService.getVision();
     }
 
     @Post()

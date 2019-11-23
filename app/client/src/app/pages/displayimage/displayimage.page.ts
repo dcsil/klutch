@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
-
-// import { TesseractService } from '../../services/tesseract.service';
-// import { TesseractJob } from 'tesseract.js';
-import { AlertController } from '@ionic/angular';
 import { VisionService } from 'src/app/services/vision.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-displayimage',
@@ -16,27 +9,30 @@ import { Observable } from 'rxjs';
 export class DisplayimagePage implements OnInit {
 
   displayImage: string;
-  imageText: string;
   // public progVal: number;
   flag: boolean;
 
-  constructor(private router: Router, private storage: Storage, private vision: VisionService) { }
+  constructor(private vision: VisionService) { }
 
+  /**
+   * Retrieves image of note from Firebase storage
+   * and display it on the app.
+   */
   ngOnInit() {
-    this.storage.get('1').then((val) => {
-      this.displayImage = val;
+    this.vision.retrieveData("IMAGE").then(res => {
+      this.displayImage = res;
+      console.log(this.displayImage);
     });
-    // this.progVal = 0;
     this.flag = false;
   }
 
-  recognizeImage() {
+  /**
+   * Calls service to analyze image with Google
+   * Vision API.
+   */
+  async recognizeImage() {
     this.flag = true;
-    
-    // this.vision.uploadAndRecognize(this.displayImage)
-
-    this.router.navigateByUrl(`displaytext`);
-
+    this.vision.recognizeImage(this.displayImage);
     this.flag = false;
   }
 
