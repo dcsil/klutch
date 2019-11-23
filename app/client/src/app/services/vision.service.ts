@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
 import { LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage, AngularFireUploadTask, AngularFireStorageReference } from 'angularfire2/storage';
 import { AngularFirestore} from 'angularfire2/firestore';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +18,63 @@ export class VisionService {
   imageText: string;
   dataField: string;
   data: string;
+  docID: number;
+  unsub: any;
+  ip: string = "100.67.25.96";
 
   constructor(private http: HttpClient,
               private router: Router,
+              private storage: Storage,
               private fireStorage: AngularFireStorage, 
               private db: AngularFirestore, 
               private loadingCtrl: LoadingController) {}
   
+  /**
+   * 1. Checks DB if "patients" collection already exists.
+   *    If not, create a new collection and set current 
+   *    docID to 0.
+   * 2. Else, retrieve, the ID of the last doc in the collection
+   *    and set current docID to lastID + 1.
+   * 3. Save this ID into local storage.
+   */
+  initializeDB() {
+    const docRef = this.db.collection('patients').get()
+      .subscribe(collection => {
+        var length = collection.docs.length;
+        if (length == 0) {
+          console.log("Collection doesn't exist! Creating a new one...")
+          this.docID = 0;
+        }
+        else {
+          console.log("Collection has docs");
+          
+          // create a listener to query
+          this.unsub = collection.query.orderBy("patientID")
+            .limitToLast(1)
+              .onSnapshot(res => {
+                this.docID = Number(res.docs[0].id.slice(7)) + 1;
+                console.log("docID initialize: ", this.docID);
+                this.storage.set('currentID', this.docID);
+              });
+        }  
+      })
+  }
+
+  async uploadImageToDB(url, id) {
+    console.log("id: ", id);
+
+    const docID = `patient${id}`;
+    const docRef = this.db.collection('patients').doc(docID);
+    const patientID = id;
+    const imageUrl = url;
+    const imageText = "";
+    await docRef.set({ patientID, imageUrl, imageText})
+      .then(res => {
+        console.log("data uploaded to database");
+        this.router.navigateByUrl(`displayimage`);
+      }); 
+  }
+
   /**
    * This function does the following:
    * 1. Creates a new document in Firebase database.
@@ -34,8 +84,14 @@ export class VisionService {
    * 
    * @param {String} base64 Image representation as a base-64 encoded string.
    */
-  async uploadImage(base64) {
+  async uploadImage(base64, docID) {
+    // let loading = this.loadingCtrl.create({
+    //   message: "Uploading your image...",
+    //   spinner: 'circles'
+    // });
 
+    // this.loadingCtrl
+    
     const id = this.db.createId();
     // upload to storage
     const path = `${id}.jpg`;
@@ -48,18 +104,13 @@ export class VisionService {
         this.ref.getDownloadURL().subscribe(url => {
           console.log("download url:", url); 
 
-          // upload to database
-          const docRef = this.db.collection('patients').doc('patient8');
-          const patientID = 0;
-          const imageUrl = url;
-          const imageText = "";
-          docRef.set({ patientID, imageUrl, imageText});
-          console.log("data uploaded to database");
-
-          this.router.navigateByUrl(`displayimage`);
+          this.uploadImageToDB(url, docID);
         });
       })
     ).subscribe();
+
+    // unsubscribe from query listener
+    this.unsub();
   }
 
   /**
@@ -68,8 +119,9 @@ export class VisionService {
    * 
    * @param {String} imageText Analyzed text returned from the Google Vision API.
    */
-  uploadImageText(imageText) {
-    const patientRef = this.db.collection('patients').doc('patient8');
+  async uploadImageText(imageText, id) {
+    const docID = `patient${id}`;
+    const patientRef = this.db.collection('patients').doc(docID);
     patientRef.update({ imageText: imageText} );
   }
 
@@ -82,18 +134,21 @@ export class VisionService {
    * 
    * @param {String} imageUrl Download URL for the image.
    */
-  recognizeImage(imageUrl) {
+  recognizeImage(imageUrl, docID) {
     let header = { "Content-Type": "application/json"};
     let data = {
       id: 1,
       image: imageUrl
     };
-    this.http.post('http://192.168.0.146:3000/vision', data, {headers: header, responseType: 'text'})
+    let serverUrl = `http://${this.ip}:3000/vision`
+    this.http.post(serverUrl, data, {headers: header, responseType: 'text'})
       .subscribe(response => {
         this.imageText = response;
         console.log("http response: ", this.imageText);
-        this.uploadImageText(this.imageText);
-        this.router.navigateByUrl(`displaytext`);
+        this.uploadImageText(this.imageText, docID)
+          .then(res => {
+              this.router.navigateByUrl(`displaytext`);
+            });
       });
   }
 
@@ -102,7 +157,7 @@ export class VisionService {
    * 
    * @param {String} dataType Either the image itself or the analyzed text.
    */
-  async retrieveData(dataType) {
+  async retrieveData(dataType, id) {
     if (dataType == "IMAGE")
     {
       this.dataField = "imageUrl";
@@ -117,7 +172,9 @@ export class VisionService {
     }
 
     // retrieve the last text pushed to the database
-    const patientRef = this.db.collection('patients').doc('patient8');
+    const docID = `patient${id}`;
+    console.log("docID:", docID);
+    const patientRef = this.db.collection('patients').doc(docID);
     let getDoc = await patientRef.get()
       .toPromise()
         .then(doc => {

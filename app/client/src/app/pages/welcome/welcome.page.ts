@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { VisionService } from 'src/app/services/vision.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-welcome',
@@ -13,13 +14,12 @@ export class WelcomePage implements OnInit {
   srcType: string;
   cameraSourceType: PictureSourceType;
   selectedImage: string;
-
   displayImage: string;
   imageText: string;
+  docID: number;
 
-  private win: any = window;
-
-  constructor(private camera: Camera, private visionService: VisionService, private menu: MenuController) { }
+  constructor(private camera: Camera, private visionService: VisionService, private menu: MenuController,
+              private storage: Storage) { }
 
   ngOnInit() {
   }
@@ -60,8 +60,12 @@ export class WelcomePage implements OnInit {
 
     const imageData = await this.camera.getPicture(options)
     this.selectedImage = `data:image/jpeg;base64,${imageData}`;
-    // this.storage.set('1', this.selectedImage);
-    this.visionService.uploadImage(this.selectedImage)
+    this.storage.get('currentID')
+      .then(id => {
+        this.docID = id;
+        console.log("docID:", id);
+        this.visionService.uploadImage(this.selectedImage, this.docID);
+      });
   }
 
 
