@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { VisionService } from 'src/app/services/vision.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -13,7 +13,7 @@ export class DisplaytextPage implements OnInit {
   imageText: string;
   docID: number;
 
-  constructor(private router: Router, private visionService: VisionService, private storage: Storage) { }
+  constructor(private router: Router, private firebaseService: FirebaseService, private storage: Storage) { }
 
   /**
    * Retrieves image of analyzed text from Firebase storage
@@ -25,7 +25,7 @@ export class DisplaytextPage implements OnInit {
         console.log("id: ", id);
         this.docID = id;
 
-        this.visionService.retrieveData("TEXT", this.docID).then(res => {
+        this.firebaseService.retrieveData("TEXT", this.docID).then(res => {
           this.imageText = res;
           console.log(this.imageText);
         });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
-import { VisionService } from 'src/app/services/vision.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -18,7 +18,7 @@ export class WelcomePage implements OnInit {
   imageText: string;
   docID: number;
 
-  constructor(private camera: Camera, private visionService: VisionService, private menu: MenuController,
+  constructor(private camera: Camera, private firebaseService: FirebaseService, private menu: MenuController,
               private storage: Storage) { }
 
   ngOnInit() {
@@ -64,7 +64,7 @@ export class WelcomePage implements OnInit {
       .then(id => {
         this.docID = id;
         console.log("docID:", id);
-        this.visionService.uploadImage(this.selectedImage, this.docID);
+        this.firebaseService.uploadImage(this.selectedImage, this.docID);
       });
   }
 

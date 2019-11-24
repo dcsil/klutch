@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Exit if any subcommand fails
+set -e
+
+DIR=$PWD
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NO_COLOR='\033[0m'
+CLEAR_LINE='\r\033[K'
+
+# # npm dependencies
+# pwd
+# echo "==> Installing npm dependencies…"
+# npm install
+
+# Nest
+pwd
+echo "==> Installing Nest..."
+npm install -g @nestjs/cli
+
+# Ionic and cordova
+cd ../client
+pwd
+echo "==> Installing Ionic and cordova dependencies..."
+npm install -g cordova ionic
+ionic cordova plugin add cordova-plugin-camera
+npm install --save @ionic-native/camera
+
+# Firebase
+pwd
+echo "==> Installing Firebase..."
+npm install firebase-tools -g
+npm install angularfire2 firebase --save 
+
+# Google Vision
+cd ../server
+pwd
+echo "==> Installing Google Vision..."
+npm install @google-cloud/vision -s
+
+

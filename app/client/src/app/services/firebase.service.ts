@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
 @Injectable({
   providedIn: 'root'
 })
-export class VisionService {
+export class FirebaseService {
 
   task: AngularFireUploadTask;
   ref: AngularFireStorageReference;
@@ -20,7 +20,7 @@ export class VisionService {
   data: string;
   docID: number;
   unsub: any;
-  ip: string = "100.67.25.96";
+  ip: string = "192.168.0.146";
 
   constructor(private http: HttpClient,
               private router: Router,

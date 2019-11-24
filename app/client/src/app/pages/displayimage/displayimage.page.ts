@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VisionService } from 'src/app/services/vision.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -14,7 +14,7 @@ export class DisplayimagePage implements OnInit {
   flag: boolean;
   docID: number;
 
-  constructor(private vision: VisionService, private storage: Storage) { }
+  constructor(private firebase: FirebaseService, private storage: Storage) { }
 
   /**
    * Retrieves image of note from Firebase storage
@@ -28,7 +28,7 @@ export class DisplayimagePage implements OnInit {
         console.log("id: ", id);
         this.docID = id;
 
-        this.vision.retrieveData("IMAGE", this.docID).then(res => {
+        this.firebase.retrieveData("IMAGE", this.docID).then(res => {
           this.displayImage = res;
           console.log(this.displayImage);
         });
@@ -38,11 +38,11 @@ export class DisplayimagePage implements OnInit {
 
   /**
    * Calls service to analyze image with Google
-   * Vision API.
+   * firebase API.
    */
   async recognizeImage() {
     this.flag = true;
-    this.vision.recognizeImage(this.displayImage, this.docID);
+    this.firebase.recognizeImage(this.displayImage, this.docID);
     this.flag = false;
   }
 
