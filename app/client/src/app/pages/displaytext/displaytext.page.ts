@@ -36,6 +36,9 @@ export class DisplaytextPage implements OnInit {
   }
 
   getEntityAnalysis(imageText) {
+    let loadingMsg = 'Analyzing your text. Please wait.';
+    this.firebaseService.showLoader(loadingMsg);
+
     let header = { "Content-Type": "application/json"};
     let data = {
       id: 1,
@@ -46,6 +49,7 @@ export class DisplaytextPage implements OnInit {
       .subscribe(response => {
         console.log("http response: ", response);
         this.firebaseService.uploadImageData('ENTITY', response, this.docID);
+        this.firebaseService.hideLoader();
         this.router.navigateByUrl('entityanalysis');
       });
   }

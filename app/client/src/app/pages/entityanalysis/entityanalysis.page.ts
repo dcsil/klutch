@@ -34,7 +34,7 @@ export class EntityanalysisPage implements OnInit {
     const newID = this.docID + 1;
     this.storage.set('currentID', newID)
       .then(res => {
-        console.log("new ID: ", this.docID);
+        console.log("new ID: ", newID);
         this.router.navigateByUrl(`success`);
       });
   }
