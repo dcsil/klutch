@@ -19,11 +19,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        app/client npm ci
-        app/client npm run build --if-present
-        app/client npm test
-        app/server npm ci
-        app/server npm run build --if-present
-        app/server npm test
+        cd app/client npm ci
+        cd app/client npm run build --if-present
+        cd app/client npm test
+        cd app/server npm ci
+        cd app/server npm run build --if-present
+        cd app/server npm test
       env:
         CI: true
