@@ -20,7 +20,7 @@ export class WatsonService {
           'features': {
             'entities': {
               'sentiment': false,
-              'limit': 5
+              'limit': 10
             }
           }
         };
@@ -29,13 +29,6 @@ export class WatsonService {
         const result = analysis.result;
         console.log(JSON.stringify(result));
         return result.entities;
-        // naturalLanguageUnderstanding.analyze(analyzeParams);
-          // .then(analysisResults => {
-          //   console.log(JSON.stringify(analysisResults.results, null, 2));
-          // })
-          // .catch(err => {
-          //   console.log('error:', err);
-          // });
       }
       
 }
