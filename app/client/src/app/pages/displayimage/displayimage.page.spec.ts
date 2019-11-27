@@ -9,6 +9,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Storage } from '@ionic/storage';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { BehaviorSubject } from 'rxjs';
 
 describe('DisplayimagePage', () => {
@@ -43,6 +44,7 @@ describe('DisplayimagePage', () => {
           useValue: storageIonicMock
         },
         { provide: AngularFireStorage, useValue: FirestoreStub },
+        { provide: FirebaseService, useValue: storageIonicMock },
         { provide: AngularFirestore, useValue: FirestoreStub }
       ]
     })
