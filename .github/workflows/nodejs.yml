@@ -23,6 +23,8 @@ jobs:
         npm run build
         npm test
       working-directory: ./app/client
+      env:
+        CI: true
     - name: server npm install, build, and test
       run: |
         npm ci
