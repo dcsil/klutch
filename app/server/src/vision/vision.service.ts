@@ -5,7 +5,6 @@ const visionClient =  new vision.ImageAnnotatorClient();
 
 @Injectable()
 export class VisionService {
-
   /**
    * Calls the Google Vision API to perform document text detection.
    * 

@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'displayimage', loadChildren: './pages/displayimage/displayimage.module#DisplayimagePageModule' },
   { path: 'displaytext', loadChildren: './pages/displaytext/displaytext.module#DisplaytextPageModule' },
   { path: 'success', loadChildren: './pages/success/success.module#SuccessPageModule' },
+  { path: 'entityanalysis', loadChildren: './pages/entityanalysis/entityanalysis.module#EntityanalysisPageModule' },
 ];
 
 @NgModule({
