@@ -1,7 +1,0 @@
-{
-  "name": "ocrexample",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}

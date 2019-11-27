@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="dark" class="ion-bar">
+      <ion-buttons slot="start">
+          <ion-back-button class="back-button" defaultHref="welcome"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Your Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-container">
+
+  <!-- <ion-progress-bar color="success" *ngIf="flag" value="{{progVal}}"></ion-progress-bar> -->
+  <ion-progress-bar color="success" *ngIf="flag"></ion-progress-bar>
+  <img class="image" [src]="displayImage" *ngIf="displayImage">
+  <ion-button round color="dark" *ngIf="!flag" (click)="recognizeImage()" class="button"> Recognize </ion-button>
+
+  <!-- <ion-item *ngIf="visionItem">
+    <ion-label>
+      <h2>{{ visionItem.message }}</h2>
+    </ion-label>
+  </ion-item> -->
+</ion-content>
