@@ -23,6 +23,10 @@ describe('DisplayimagePage', () => {
     get: () => new Promise<any>((resolve, reject) => resolve('test')),
   };
 
+  const FirebaseServiceMock: any = {
+    retrieveData: () => new Promise<any>((resolve, reject) => resolve('test')),
+  };
+
   const FirestoreStub = {
     collection: (name: string) => ({
       doc: (_id: string) => ({
@@ -44,7 +48,7 @@ describe('DisplayimagePage', () => {
           useValue: storageIonicMock
         },
         { provide: AngularFireStorage, useValue: FirestoreStub },
-        { provide: FirebaseService, useValue: storageIonicMock },
+        { provide: FirebaseService, useValue: FirebaseServiceMock },
         { provide: AngularFirestore, useValue: FirestoreStub }
       ]
     })
