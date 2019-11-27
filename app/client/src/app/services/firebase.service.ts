@@ -156,6 +156,9 @@ export class FirebaseService {
    * @param {String} imageUrl Download URL for the image.
    */
   recognizeImage(imageUrl, docID) {
+    let loadingMsg = "Analyzing your image. Please wait."
+    this.showLoader(loadingMsg);
+
     let header = { "Content-Type": "application/json"};
     let data = {
       id: 1,
@@ -168,6 +171,7 @@ export class FirebaseService {
         console.log("http response: ", this.imageText);
         this.uploadImageData('TEXT', this.imageText, docID)
           .then(res => {
+              this.hideLoader();
               this.router.navigateByUrl(`displaytext`);
             });
       });
