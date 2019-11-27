@@ -13,23 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 12.x
       uses: actions/setup-node@v1
+      env:
+        NODE_ENV: test
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: client npm install, build, and test
-      run: |
-        npm ci
-        npm run build
-        npm test
-      working-directory: ./app/client
+        node-version: 12.x
+    - name: NPM Install
       env:
-        CI: true
-    - name: server npm install, build, and test
-      run: |
-        npm ci
-        npm run build
-        npm test
-      working-directory: ./app/server
+        NODE_ENV: test
+      run: npm install --no-audit
+    - name: Run tests
       env:
-        CI: true
+        NODE_ENV: test
+      run: npm test
