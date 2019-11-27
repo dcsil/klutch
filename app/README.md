@@ -23,6 +23,7 @@ Table of Contents
 - Nest.js
 - Ionic
 - Google Vision
+- IBM Watson
 - Angular Firebase
 - FHIR
 - SMART
@@ -39,16 +40,9 @@ Table of Contents
 
 ## Debugging
 1. Make sure you have all the required dependencies. Otherwise, run the bootstrap script as outlined in [Development Setup](#development-setup).
-2. Enable Google Vision API.
-   1. Sign in to your [Google Cloud Platform Console](https://console.cloud.google.com/).
-   2. From the dashboard, go to the Navigation Menu bar &rightarrow; APIs & Services &rightarrow; Library
-   3. Look for Cloud Vision API. After you click it, you should see the following page:
-        <p align="left">
-            <img src="./assets/enable-vision.png" width="500">
-        </p>
-   4. Click "Enable" to enable the Vision API.
+2. Configure Google Vision API by following this [guide](https://cloud.google.com/vision/docs/before-you-begin).
 3. Configure Firebase
-   1. Sign in to your [Firebase Console](https://console.cloud.google.com/).
+   1. Sign in to your [Firebase Console](https://console.firebase.google.com/).
    2. For *debugging purposes only*, we are going to make our storage and database public.
       1. Navigate to Storage &rightarrow; Rules and enter the following rule:
         ```
@@ -71,30 +65,11 @@ Table of Contents
         }
         ```
     3. Wait for a few minutes for the new rules to be applied before proceeding with the next steps.
-4. **Temporary workaround:** currently, to avoid ERR_CLEARTEXT_NOT_PERMITTED when launching the app, you will need to hardcode your server IP address in two locations as shown below.
-   1. ../resources/android/xml/network_security_config.xml
-    ```html
-    <?xml version="1.0" encoding="utf-8"?>
-    <network-security-config>
-        <domain-config cleartextTrafficPermitted="true">
-            <domain includeSubdomains="true">localhost</domain>
-            <domain includeSubdomains="true">YOUR_SERVER_IP_ADDR</domain>
-        </domain-config>
-    </network-security-config>
-
-    ```
-   2. ../services/firebase.service.ts
-    ```typescript
-    export class FirebaseService {
-    ...
-    ip: string = YOUR_SERVER_IP_ADDR;
-    ...
-    ```
-5. Navigate to the app/server/ directory and run the server from command line.
+4. Navigate to the app/server/ directory and run the server from command line.
    ``` 
    npm run start:dev
    ```
-6. In another terminal window, navigate to the app/client/ directory and launch the app from the client side. There are two ways to do this:
+5. In another terminal window, navigate to the app/client/ directory and launch the app from the client side. There are two ways to do this:
    1. Ionic DevApp
       1. Download the Ionic DevApp mobile app from Google Playstore.
       2. Make sure phone and computer are connected to the same network.

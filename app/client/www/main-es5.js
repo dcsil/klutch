@@ -10,17 +10,22 @@
 var map = {
 	"./pages/displayimage/displayimage.module": [
 		"./src/app/pages/displayimage/displayimage.module.ts",
-		"common",
+		"default~pages-displayimage-displayimage-module~pages-displaytext-displaytext-module~pages-entityanal~6c8b4e18",
 		"pages-displayimage-displayimage-module"
 	],
 	"./pages/displaytext/displaytext.module": [
 		"./src/app/pages/displaytext/displaytext.module.ts",
-		"common",
+		"default~pages-displayimage-displayimage-module~pages-displaytext-displaytext-module~pages-entityanal~6c8b4e18",
 		"pages-displaytext-displaytext-module"
+	],
+	"./pages/entityanalysis/entityanalysis.module": [
+		"./src/app/pages/entityanalysis/entityanalysis.module.ts",
+		"default~pages-displayimage-displayimage-module~pages-displaytext-displaytext-module~pages-entityanal~6c8b4e18",
+		"pages-entityanalysis-entityanalysis-module"
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
-		"common",
+		"default~pages-displayimage-displayimage-module~pages-displaytext-displaytext-module~pages-entityanal~6c8b4e18",
 		"pages-login-login-module"
 	],
 	"./pages/success/success.module": [
@@ -29,7 +34,7 @@ var map = {
 	],
 	"./pages/welcome/welcome.module": [
 		"./src/app/pages/welcome/welcome.module.ts",
-		"common",
+		"default~pages-displayimage-displayimage-module~pages-displaytext-displaytext-module~pages-entityanal~6c8b4e18",
 		"pages-welcome-welcome-module"
 	]
 };
@@ -501,13 +506,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     // { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '', loadChildren: function () { return Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-login-login-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(function (m) { return m.LoginPageModule; }); } },
+    { path: '', loadChildren: function () { return Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("default~pages-displayimage-displayimage-module~pages-displaytext-displaytext-module~pages-entityanal~6c8b4e18"), __webpack_require__.e("pages-login-login-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(function (m) { return m.LoginPageModule; }); } },
     // { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)},
     { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
     { path: 'welcome', loadChildren: './pages/welcome/welcome.module#WelcomePageModule' },
     { path: 'displayimage', loadChildren: './pages/displayimage/displayimage.module#DisplayimagePageModule' },
     { path: 'displaytext', loadChildren: './pages/displaytext/displaytext.module#DisplaytextPageModule' },
     { path: 'success', loadChildren: './pages/success/success.module#SuccessPageModule' },
+    { path: 'entityanalysis', loadChildren: './pages/entityanalysis/entityanalysis.module#EntityanalysisPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -741,7 +747,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/sonata/k/klutch/app/client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/shawneerizqa/Projects/klutch/app/client/src/main.ts */"./src/main.ts");
 
 
 /***/ })
