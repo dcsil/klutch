@@ -69,7 +69,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".button {\n  --border-radius: 40px;\n  --padding-bottom: 25px;\n  --padding-top: 25px;\n  width: 45%;\n}\n\n.buttons-container {\n  width: 100%;\n  display: block;\n  position: relative;\n  float: none;\n  margin: auto;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.ion-main-card {\n  height: 365px;\n  margin-top: 0px;\n}\n\n.ion-text-center {\n  font-size: 30px;\n}\n\n.ion-card-label {\n  font-size: 18px;\n}\n\n.logo {\n  display: block;\n  position: relative;\n  float: none;\n  margin-left: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zaGF3bmVlcml6cWEvUHJvamVjdHMva2x1dGNoL2FwcC9jbGllbnQvc3JjL2FwcC9wYWdlcy9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtFQUNBLFVBQUE7QUNDSjs7QURFQTtFQUNJLFdBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNDSjs7QURFQTtFQUNJLGFBQUE7RUFDQSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5idXR0b24ge1xuICAgIC0tYm9yZGVyLXJhZGl1czogNDBweDtcbiAgICAtLXBhZGRpbmctYm90dG9tOiAyNXB4O1xuICAgIC0tcGFkZGluZy10b3A6IDI1cHg7XG4gICAgd2lkdGg6IDQ1JTtcbn1cblxuLmJ1dHRvbnMtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgZmxvYXQ6IG5vbmU7XG4gICAgbWFyZ2luOiBhdXRvO1xuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICAgIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5pb24tbWFpbi1jYXJkIHtcbiAgICBoZWlnaHQ6IDM2NXB4O1xuICAgIG1hcmdpbi10b3A6IDBweDtcbn1cblxuLmlvbi10ZXh0LWNlbnRlciB7XG4gICAgZm9udC1zaXplOiAzMHB4O1xufVxuXG4uaW9uLWNhcmQtbGFiZWwge1xuICAgIGZvbnQtc2l6ZTogMThweDtcbn1cblxuLmxvZ28ge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBmbG9hdDogbm9uZTtcbiAgICBtYXJnaW4tbGVmdDogMzBweDtcbn1cbiIsIi5idXR0b24ge1xuICAtLWJvcmRlci1yYWRpdXM6IDQwcHg7XG4gIC0tcGFkZGluZy1ib3R0b206IDI1cHg7XG4gIC0tcGFkZGluZy10b3A6IDI1cHg7XG4gIHdpZHRoOiA0NSU7XG59XG5cbi5idXR0b25zLWNvbnRhaW5lciB7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBmbG9hdDogbm9uZTtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tbGVmdDogMTBweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLmlvbi1tYWluLWNhcmQge1xuICBoZWlnaHQ6IDM2NXB4O1xuICBtYXJnaW4tdG9wOiAwcHg7XG59XG5cbi5pb24tdGV4dC1jZW50ZXIge1xuICBmb250LXNpemU6IDMwcHg7XG59XG5cbi5pb24tY2FyZC1sYWJlbCB7XG4gIGZvbnQtc2l6ZTogMThweDtcbn1cblxuLmxvZ28ge1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBmbG9hdDogbm9uZTtcbiAgbWFyZ2luLWxlZnQ6IDMwcHg7XG59Il19 */"
+module.exports = ".button {\n  --border-radius: 40px;\n  --padding-bottom: 25px;\n  --padding-top: 25px;\n  width: 45%;\n}\n\n.buttons-container {\n  width: 100%;\n  display: block;\n  position: relative;\n  float: none;\n  margin: auto;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.ion-main-card {\n  height: 365px;\n  margin-top: 0px;\n}\n\n.ion-text-center {\n  font-size: 30px;\n}\n\n.ion-card-label {\n  font-size: 18px;\n}\n\n.logo {\n  display: block;\n  position: relative;\n  float: none;\n  margin-left: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zb25hdGEvay9rbHV0Y2gvYXBwL2NsaWVudC9zcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvbG9naW4vbG9naW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7RUFDQSxzQkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtBQ0NKOztBREVBO0VBQ0ksV0FBQTtFQUNBLGNBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksYUFBQTtFQUNBLGVBQUE7QUNDSjs7QURFQTtFQUNJLGVBQUE7QUNDSjs7QURFQTtFQUNJLGVBQUE7QUNDSjs7QURFQTtFQUNJLGNBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ1dHRvbiB7XG4gICAgLS1ib3JkZXItcmFkaXVzOiA0MHB4O1xuICAgIC0tcGFkZGluZy1ib3R0b206IDI1cHg7XG4gICAgLS1wYWRkaW5nLXRvcDogMjVweDtcbiAgICB3aWR0aDogNDUlO1xufVxuXG4uYnV0dG9ucy1jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBmbG9hdDogbm9uZTtcbiAgICBtYXJnaW46IGF1dG87XG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gICAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLmlvbi1tYWluLWNhcmQge1xuICAgIGhlaWdodDogMzY1cHg7XG4gICAgbWFyZ2luLXRvcDogMHB4O1xufVxuXG4uaW9uLXRleHQtY2VudGVyIHtcbiAgICBmb250LXNpemU6IDMwcHg7XG59XG5cbi5pb24tY2FyZC1sYWJlbCB7XG4gICAgZm9udC1zaXplOiAxOHB4O1xufVxuXG4ubG9nbyB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGZsb2F0OiBub25lO1xuICAgIG1hcmdpbi1sZWZ0OiAzMHB4O1xufVxuIiwiLmJ1dHRvbiB7XG4gIC0tYm9yZGVyLXJhZGl1czogNDBweDtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjVweDtcbiAgLS1wYWRkaW5nLXRvcDogMjVweDtcbiAgd2lkdGg6IDQ1JTtcbn1cblxuLmJ1dHRvbnMtY29udGFpbmVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGZsb2F0OiBub25lO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uaW9uLW1haW4tY2FyZCB7XG4gIGhlaWdodDogMzY1cHg7XG4gIG1hcmdpbi10b3A6IDBweDtcbn1cblxuLmlvbi10ZXh0LWNlbnRlciB7XG4gIGZvbnQtc2l6ZTogMzBweDtcbn1cblxuLmlvbi1jYXJkLWxhYmVsIHtcbiAgZm9udC1zaXplOiAxOHB4O1xufVxuXG4ubG9nbyB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGZsb2F0OiBub25lO1xuICBtYXJnaW4tbGVmdDogMzBweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -86,14 +86,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_firebase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/firebase.service */ "./src/app/services/firebase.service.ts");
+
 
 
 
 var LoginPage = /** @class */ (function () {
-    function LoginPage(router) {
+    function LoginPage(router, firebaseService) {
         this.router = router;
+        this.firebaseService = firebaseService;
     }
     LoginPage.prototype.ngOnInit = function () {
+        this.firebaseService.initializeDB();
     };
     LoginPage.prototype.login = function () {
         this.router.navigateByUrl("welcome");
@@ -101,7 +105,8 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.register = function () {
     };
     LoginPage.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: src_app_services_firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"] }
     ]; };
     LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -109,7 +114,7 @@ var LoginPage = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./login.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/login/login.page.html"),
             styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/pages/login/login.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_services_firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"]])
     ], LoginPage);
     return LoginPage;
 }());

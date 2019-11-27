@@ -66,7 +66,7 @@ DisplayimagePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ion-container {\n  --padding-top: 30px;\n}\n\n.image {\n  margin-bottom: 30px;\n}\n\n.button {\n  --border-radius: 60px;\n  --padding-bottom: 25px;\n  --padding-top: 25px;\n  width: 40%;\n  display: block;\n  position: relative;\n  float: none;\n  margin: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zaGF3bmVlcml6cWEvUHJvamVjdHMva2x1dGNoL2FwcC9jbGllbnQvc3JjL2FwcC9wYWdlcy9kaXNwbGF5aW1hZ2UvZGlzcGxheWltYWdlLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvZGlzcGxheWltYWdlL2Rpc3BsYXlpbWFnZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBQTtBQ0NKOztBREVBO0VBQ0ksbUJBQUE7QUNDSjs7QURFQTtFQUNJLHFCQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtFQUNBLFVBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvZGlzcGxheWltYWdlL2Rpc3BsYXlpbWFnZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW9uLWNvbnRhaW5lciB7XG4gICAgLS1wYWRkaW5nLXRvcDogMzBweDtcbn1cblxuLmltYWdlIHtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuXG4uYnV0dG9uIHtcbiAgICAtLWJvcmRlci1yYWRpdXM6IDYwcHg7XG4gICAgLS1wYWRkaW5nLWJvdHRvbTogMjVweDtcbiAgICAtLXBhZGRpbmctdG9wOiAyNXB4O1xuICAgIHdpZHRoOiA0MCU7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGZsb2F0OiBub25lO1xuICAgIG1hcmdpbjogYXV0bztcbn0iLCIuaW9uLWNvbnRhaW5lciB7XG4gIC0tcGFkZGluZy10b3A6IDMwcHg7XG59XG5cbi5pbWFnZSB7XG4gIG1hcmdpbi1ib3R0b206IDMwcHg7XG59XG5cbi5idXR0b24ge1xuICAtLWJvcmRlci1yYWRpdXM6IDYwcHg7XG4gIC0tcGFkZGluZy1ib3R0b206IDI1cHg7XG4gIC0tcGFkZGluZy10b3A6IDI1cHg7XG4gIHdpZHRoOiA0MCU7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGZsb2F0OiBub25lO1xuICBtYXJnaW46IGF1dG87XG59Il19 */"
+module.exports = ".ion-container {\n  --padding-top: 30px;\n}\n\n.image {\n  margin-bottom: 30px;\n}\n\n.button {\n  --border-radius: 60px;\n  --padding-bottom: 25px;\n  --padding-top: 25px;\n  width: 40%;\n  display: block;\n  position: relative;\n  float: none;\n  margin: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zb25hdGEvay9rbHV0Y2gvYXBwL2NsaWVudC9zcmMvYXBwL3BhZ2VzL2Rpc3BsYXlpbWFnZS9kaXNwbGF5aW1hZ2UucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9kaXNwbGF5aW1hZ2UvZGlzcGxheWltYWdlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG1CQUFBO0FDQ0o7O0FERUE7RUFDSSxtQkFBQTtBQ0NKOztBREVBO0VBQ0kscUJBQUE7RUFDQSxzQkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtFQUNBLGNBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9kaXNwbGF5aW1hZ2UvZGlzcGxheWltYWdlLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pb24tY29udGFpbmVyIHtcbiAgICAtLXBhZGRpbmctdG9wOiAzMHB4O1xufVxuXG4uaW1hZ2Uge1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG59XG5cbi5idXR0b24ge1xuICAgIC0tYm9yZGVyLXJhZGl1czogNjBweDtcbiAgICAtLXBhZGRpbmctYm90dG9tOiAyNXB4O1xuICAgIC0tcGFkZGluZy10b3A6IDI1cHg7XG4gICAgd2lkdGg6IDQwJTtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgZmxvYXQ6IG5vbmU7XG4gICAgbWFyZ2luOiBhdXRvO1xufSIsIi5pb24tY29udGFpbmVyIHtcbiAgLS1wYWRkaW5nLXRvcDogMzBweDtcbn1cblxuLmltYWdlIHtcbiAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cblxuLmJ1dHRvbiB7XG4gIC0tYm9yZGVyLXJhZGl1czogNjBweDtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjVweDtcbiAgLS1wYWRkaW5nLXRvcDogMjVweDtcbiAgd2lkdGg6IDQwJTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZmxvYXQ6IG5vbmU7XG4gIG1hcmdpbjogYXV0bztcbn0iXX0= */"
 
 /***/ }),
 
@@ -82,59 +82,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DisplayimagePage", function() { return DisplayimagePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_firebase_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/firebase.service */ "./src/app/services/firebase.service.ts");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var src_app_services_vision_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/vision.service */ "./src/app/services/vision.service.ts");
 
 
-
-
-// import { TesseractService } from '../../services/tesseract.service';
-// import { TesseractJob } from 'tesseract.js';
 
 
 let DisplayimagePage = class DisplayimagePage {
-    constructor(router, storage, vision, alertController) {
-        this.router = router;
+    constructor(firebase, storage) {
+        this.firebase = firebase;
         this.storage = storage;
-        this.vision = vision;
-        this.alertController = alertController;
     }
+    /**
+     * Retrieves image of note from Firebase storage
+     * and display it on the app.
+     */
     ngOnInit() {
-        this.storage.get('0').then((val) => {
-            this.displayImage = val;
+        // this.flag = false;
+        this.storage.get('currentID')
+            .then(id => {
+            console.log("id: ", id);
+            this.docID = id;
+            this.firebase.retrieveData("IMAGE", this.docID).then(res => {
+                this.displayImage = res;
+                console.log(this.displayImage);
+            });
         });
-        // this.progVal = 0;
-        this.flag = false;
     }
+    /**
+     * Calls service to analyze image with Google
+     * firebase API.
+     */
     recognizeImage() {
-        this.flag = true;
-        // this.http.post('http://localhost:3000/vision', {
-        //   id: 0,
-        //   image: this.displayImage
-        // });
-        // this.visionItem = this.vision.getVision();
-        // this.storage.set('1', this.visionItem);
-        // this.tessJob = this.tesseract.recognizeImage(this.displayImage);
-        // this.visionJob = this.vision.detectText(this.displayImage);
-        // this.tessJob.progress(progress => {
-        //   console.log('progress', progress);
-        //   // this.progVal = Number(progress.progress);
-        // });
-        // this.imageText = (await this.tessJob).text;
-        // const fullTextAnnnotation = (await this.visionJob).fullTextAnnnotation;
-        // this.imageText = fullTextAnnnotation.text;
-        // this.storage.set('1', this.imageText);
-        this.router.navigateByUrl(`displaytext`);
-        this.flag = false;
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.flag = true;
+            this.firebase.recognizeImage(this.displayImage, this.docID);
+            this.flag = false;
+        });
     }
 };
 DisplayimagePage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"] },
-    { type: src_app_services_vision_service__WEBPACK_IMPORTED_MODULE_5__["VisionService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] }
+    { type: src_app_services_firebase_service__WEBPACK_IMPORTED_MODULE_2__["FirebaseService"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"] }
 ];
 DisplayimagePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -142,8 +131,7 @@ DisplayimagePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./displayimage.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/displayimage/displayimage.page.html"),
         styles: [__webpack_require__(/*! ./displayimage.page.scss */ "./src/app/pages/displayimage/displayimage.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"],
-        src_app_services_vision_service__WEBPACK_IMPORTED_MODULE_5__["VisionService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_firebase_service__WEBPACK_IMPORTED_MODULE_2__["FirebaseService"], _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"]])
 ], DisplayimagePage);
 
 

@@ -18,12 +18,18 @@ var map = {
 		"common",
 		"pages-displaytext-displaytext-module"
 	],
+	"./pages/login/login.module": [
+		"./src/app/pages/login/login.module.ts",
+		"common",
+		"pages-login-login-module"
+	],
 	"./pages/success/success.module": [
 		"./src/app/pages/success/success.module.ts",
 		"pages-success-success-module"
 	],
 	"./pages/welcome/welcome.module": [
 		"./src/app/pages/welcome/welcome.module.ts",
+		"common",
 		"pages-welcome-welcome-module"
 	]
 };
@@ -489,12 +495,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     // { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '', loadChildren: () => __webpack_require__.e(/*! import() | pages-login-login-module */ "pages-login-login-module").then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(m => m.LoginPageModule) },
+    { path: '', loadChildren: () => Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-login-login-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(m => m.LoginPageModule) },
     // { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)},
+    { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
     { path: 'welcome', loadChildren: './pages/welcome/welcome.module#WelcomePageModule' },
+    { path: 'displayimage', loadChildren: './pages/displayimage/displayimage.module#DisplayimagePageModule' },
     { path: 'displaytext', loadChildren: './pages/displaytext/displaytext.module#DisplaytextPageModule' },
     { path: 'success', loadChildren: './pages/success/success.module#SuccessPageModule' },
-    { path: 'displayimage', loadChildren: './pages/displayimage/displayimage.module#DisplayimagePageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -593,11 +600,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angularfire2 */ "./node_modules/angularfire2/index.js");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(angularfire2__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
 
 
 
@@ -614,23 +632,25 @@ let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]],
         entryComponents: [],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
-            _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(),
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
-            // NgProgressModule
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_13__["IonicStorageModule"].forRoot(),
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"],
+            angularfire2__WEBPACK_IMPORTED_MODULE_7__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_15__["environment"].firebase),
+            angularfire2_firestore__WEBPACK_IMPORTED_MODULE_8__["AngularFirestoreModule"],
+            angularfire2_storage__WEBPACK_IMPORTED_MODULE_9__["AngularFireStorageModule"]
         ],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
-            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__["Camera"]
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__["Camera"]
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
     })
 ], AppModule);
 
@@ -652,7 +672,15 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
+    firebase: {
+        apiKey: "AIzaSyD_XpDJUgFWnr4LJhLr3Xz0ny_LwMT4YP8",
+        authDomain: "dcsil-klutch.firebaseapp.com",
+        databaseURL: "https://dcsil-klutch.firebaseio.com",
+        projectId: "dcsil-klutch",
+        storageBucket: "dcsil-klutch.appspot.com",
+        messagingSenderId: "462506361376",
+    }
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -699,7 +727,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shawneerizqa/Projects/klutch/app/client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/sonata/k/klutch/app/client/src/main.ts */"./src/main.ts");
 
 
 /***/ })

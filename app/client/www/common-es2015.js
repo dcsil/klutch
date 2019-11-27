@@ -681,40 +681,217 @@ const findCheckedOption = (el, tagName) => {
 
 /***/ }),
 
-/***/ "./src/app/services/vision.service.ts":
-/*!********************************************!*\
-  !*** ./src/app/services/vision.service.ts ***!
-  \********************************************/
-/*! exports provided: VisionService */
+/***/ "./src/app/services/firebase.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/firebase.service.ts ***!
+  \**********************************************/
+/*! exports provided: FirebaseService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisionService", function() { return VisionService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseService", function() { return FirebaseService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
 
 
 
-// const visionClient =  new vision.ImageAnnotatorClient();
-let VisionService = class VisionService {
-    constructor(http) {
+
+
+
+
+
+
+let FirebaseService = class FirebaseService {
+    constructor(http, router, storage, fireStorage, db, loadingCtrl) {
         this.http = http;
+        this.router = router;
+        this.storage = storage;
+        this.fireStorage = fireStorage;
+        this.db = db;
+        this.loadingCtrl = loadingCtrl;
+        this.ip = "100.65.108.71";
     }
-    getVision() {
-        return this.http.get('http://192.168.0.146:3000/vision');
+    /**
+     * 1. Checks DB if "patients" collection already exists.
+     *    If not, create a new collection and set current
+     *    docID to 0.
+     * 2. Else, retrieve, the ID of the last doc in the collection
+     *    and set current docID to lastID + 1.
+     * 3. Save this ID into local storage.
+     */
+    initializeDB() {
+        const docRef = this.db.collection('patients').get()
+            .subscribe(collection => {
+            var length = collection.docs.length;
+            if (length == 0) {
+                console.log("Collection doesn't exist! Creating a new one...");
+                this.docID = 0;
+            }
+            else {
+                console.log("Collection has docs");
+                // create a listener to query
+                this.unsub = collection.query.orderBy("patientID")
+                    .limitToLast(1)
+                    .onSnapshot(res => {
+                    this.docID = Number(res.docs[0].id.slice(7)) + 1;
+                    console.log("docID initialize: ", this.docID);
+                    this.storage.set('currentID', this.docID);
+                });
+            }
+        });
+    }
+    uploadImageToDB(url, id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("id: ", id);
+            const docID = `patient${id}`;
+            const docRef = this.db.collection('patients').doc(docID);
+            const patientID = id;
+            const imageUrl = url;
+            const imageText = "";
+            yield docRef.set({ patientID, imageUrl, imageText })
+                .then(res => {
+                console.log("data uploaded to database");
+                this.router.navigateByUrl(`displayimage`);
+            });
+        });
+    }
+    /**
+     * This function does the following:
+     * 1. Creates a new document in Firebase database.
+     * 2. Uploads image to Firebase storage and retrieves the download URL.
+     * 3. Saves image URL into the newly created document in DB.
+     * 4. Navigates to the displayimage page as the final step.
+     *
+     * @param {String} base64 Image representation as a base-64 encoded string.
+     */
+    uploadImage(base64, docID) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            // let loading = this.loadingCtrl.create({
+            //   message: "Uploading your image...",
+            //   spinner: 'circles'
+            // });
+            // this.loadingCtrl
+            const id = this.db.createId();
+            // upload to storage
+            const path = `${id}.jpg`;
+            this.ref = this.fireStorage.ref(path);
+            this.task = this.ref.putString(base64, 'data_url');
+            // get download URL
+            this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(() => {
+                this.ref.getDownloadURL().subscribe(url => {
+                    console.log("download url:", url);
+                    this.uploadImageToDB(url, docID);
+                });
+            })).subscribe();
+            // unsubscribe from query listener
+            this.unsub();
+        });
+    }
+    /**
+     * Retrieves the corresponding image document in DB and updates
+     * the imageText field with the analyzed text.
+     *
+     * @param {String} imageText Analyzed text returned from the Google Vision API.
+     */
+    uploadImageText(imageText, id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const docID = `patient${id}`;
+            const patientRef = this.db.collection('patients').doc(docID);
+            patientRef.update({ imageText: imageText });
+        });
+    }
+    /**
+     * This function does the following:
+     * 1. Submits HTTP POST request to call the Google Vision API in
+     * backend to perform document text detection.
+     * 2. Uploads the retrieved analyzed text to DB.
+     * 3. Navigates to displaytext page as the final step.
+     *
+     * @param {String} imageUrl Download URL for the image.
+     */
+    recognizeImage(imageUrl, docID) {
+        let header = { "Content-Type": "application/json" };
+        let data = {
+            id: 1,
+            image: imageUrl
+        };
+        let serverUrl = `https://klucth-app.herokuapp.com/vision`;
+        this.http.post(serverUrl, data, { headers: header, responseType: 'text' })
+            .subscribe(response => {
+            this.imageText = response;
+            console.log("http response: ", this.imageText);
+            this.uploadImageText(this.imageText, docID)
+                .then(res => {
+                this.router.navigateByUrl(`displaytext`);
+            });
+        });
+    }
+    /**
+     * Retrieves selected data from Firebase DB.
+     *
+     * @param {String} dataType Either the image itself or the analyzed text.
+     */
+    retrieveData(dataType, id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            if (dataType == "IMAGE") {
+                this.dataField = "imageUrl";
+            }
+            else if (dataType == "TEXT") {
+                this.dataField = "imageText";
+            }
+            else {
+                // TODO: handle error
+            }
+            // retrieve the last text pushed to the database
+            const docID = `patient${id}`;
+            console.log("docID:", docID);
+            const patientRef = this.db.collection('patients').doc(docID);
+            let getDoc = yield patientRef.get()
+                .toPromise()
+                .then(doc => {
+                if (!doc.exists) {
+                    console.log('No such document!');
+                }
+                else {
+                    console.log("data field: ", this.dataField);
+                    this.data = doc.get(this.dataField);
+                    console.log('Document text:', this.data);
+                }
+            });
+            console.log("Text after: ", this.data);
+            return this.data;
+        });
     }
 };
-VisionService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+FirebaseService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_8__["Storage"] },
+    { type: angularfire2_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorage"] },
+    { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] }
 ];
-VisionService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+FirebaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-], VisionService);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _ionic_storage__WEBPACK_IMPORTED_MODULE_8__["Storage"],
+        angularfire2_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorage"],
+        angularfire2_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"]])
+], FirebaseService);
 
 
 

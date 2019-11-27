@@ -20,7 +20,7 @@ export class FirebaseService {
   data: string;
   docID: number;
   unsub: any;
-  ip: string = "192.168.0.146";
+  ip: string = "100.65.108.71";
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -140,7 +140,7 @@ export class FirebaseService {
       id: 1,
       image: imageUrl
     };
-    let serverUrl = `http://${this.ip}:3000/vision`
+    let serverUrl = `https://klucth-app.herokuapp.com/vision`
     this.http.post(serverUrl, data, {headers: header, responseType: 'text'})
       .subscribe(response => {
         this.imageText = response;
