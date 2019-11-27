@@ -23,7 +23,9 @@ jobs:
       env:
         NODE_ENV: test
       run: npm install --no-audit
+      working-directory: ./app/client
     - name: Run tests
       env:
         NODE_ENV: test
       run: npm test
+      working-directory: ./app/client
