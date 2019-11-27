@@ -1,4 +1,4 @@
-name: Node CI - klutch
+name: Ionic CI
 
 on: [push]
 
@@ -10,17 +10,18 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
+
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: server npm install, build, and test
-      working-directory: ./app/server
+    - name: client npm install, build, and test
+      working-directory: ./app/client
       run: |
         npm ci
-        npm run build
-        npm test
+        npm run build --if-present
+        npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       env:
         CI: true
