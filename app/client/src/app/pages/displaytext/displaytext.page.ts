@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Storage } from '@ionic/storage';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-displaytext',
@@ -13,7 +14,8 @@ export class DisplaytextPage implements OnInit {
   imageText: string;
   docID: number;
 
-  constructor(private router: Router, private firebaseService: FirebaseService, private storage: Storage) { }
+  constructor(private router: Router, private firebaseService: FirebaseService, private storage: Storage,
+              private http: HttpClient) { }
 
   /**
    * Retrieves image of analyzed text from Firebase storage
@@ -32,16 +34,26 @@ export class DisplaytextPage implements OnInit {
       });
   }
 
+  getEntityAnalysis(imageText) {
+    let header = { "Content-Type": "application/json"};
+    let data = {
+      id: 1,
+      text: imageText
+    };
+    let serverUrl = 'http://192.168.0.146:3000/watson'
+    this.http.post(serverUrl, data, {headers: header, responseType: 'json'})
+      .subscribe(response => {
+        console.log("http response: ", response);
+        this.firebaseService.uploadImageData('ENTITY', response, this.docID);
+        this.router.navigateByUrl('entityanalysis');
+      });
+  }
+
   /**
    * Navigates to success page.
    */
-  goToSuccessPage(){
-    // update docID
-    const newID = this.docID + 1;
-    this.storage.set('currentID', newID)
-      .then(res => {
-        this.router.navigateByUrl(`success`);
-      });
+  showEntityAnalysis() {
+    this.getEntityAnalysis(this.imageText);
   }
 
 }

@@ -29,6 +29,20 @@ export class FirebaseService {
               private db: AngularFirestore, 
               private loadingCtrl: LoadingController) {}
   
+  showLoader(msg) {
+    let loading = this.loadingCtrl.create({
+      message: msg,
+      spinner: 'circles',
+      cssClass: 'loader'
+    }).then(res => {
+      res.present();
+    })
+  }
+
+  hideLoader() {
+    this.loadingCtrl.dismiss();
+  }
+
   /**
    * 1. Checks DB if "patients" collection already exists.
    *    If not, create a new collection and set current 
@@ -44,6 +58,7 @@ export class FirebaseService {
         if (length == 0) {
           console.log("Collection doesn't exist! Creating a new one...")
           this.docID = 0;
+          this.storage.set('currentID', this.docID);
         }
         else {
           console.log("Collection has docs");
@@ -68,8 +83,10 @@ export class FirebaseService {
     const patientID = id;
     const imageUrl = url;
     const imageText = "";
-    await docRef.set({ patientID, imageUrl, imageText})
+    const entity = [];
+    await docRef.set({ patientID, imageUrl, imageText, entity})
       .then(res => {
+        this.hideLoader();
         console.log("data uploaded to database");
         this.router.navigateByUrl(`displayimage`);
       }); 
@@ -85,12 +102,9 @@ export class FirebaseService {
    * @param {String} base64 Image representation as a base-64 encoded string.
    */
   async uploadImage(base64, docID) {
-    // let loading = this.loadingCtrl.create({
-    //   message: "Uploading your image...",
-    //   spinner: 'circles'
-    // });
 
-    // this.loadingCtrl
+    let loadingMsg = "Uploading your image. Please wait."
+    this.showLoader(loadingMsg);
     
     const id = this.db.createId();
     // upload to storage
@@ -119,10 +133,17 @@ export class FirebaseService {
    * 
    * @param {String} imageText Analyzed text returned from the Google Vision API.
    */
-  async uploadImageText(imageText, id) {
+  async uploadImageData(dataType, data, id) {
     const docID = `patient${id}`;
     const patientRef = this.db.collection('patients').doc(docID);
-    patientRef.update({ imageText: imageText} );
+
+    if (dataType == 'TEXT') {
+      patientRef.update({ imageText: data} );
+    }
+    else if (dataType == 'ENTITY') {
+      patientRef.update({ entity: data} );
+    }
+
   }
 
   /**
@@ -145,7 +166,7 @@ export class FirebaseService {
       .subscribe(response => {
         this.imageText = response;
         console.log("http response: ", this.imageText);
-        this.uploadImageText(this.imageText, docID)
+        this.uploadImageData('TEXT', this.imageText, docID)
           .then(res => {
               this.router.navigateByUrl(`displaytext`);
             });
