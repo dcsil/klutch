@@ -13,6 +13,7 @@ export class DisplaytextPage implements OnInit {
 
   imageText: string;
   docID: number;
+  ip: "100.67.31.157";
 
   constructor(private router: Router, private firebaseService: FirebaseService, private storage: Storage,
               private http: HttpClient) { }
@@ -40,7 +41,7 @@ export class DisplaytextPage implements OnInit {
       id: 1,
       text: imageText
     };
-    let serverUrl = 'http://192.168.0.146:3000/watson'
+    let serverUrl = 'http://100.67.31.157:3000/watson';
     this.http.post(serverUrl, data, {headers: header, responseType: 'json'})
       .subscribe(response => {
         console.log("http response: ", response);

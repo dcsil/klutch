@@ -187,9 +187,9 @@ export class FirebaseService {
     {
       this.dataField = "imageText";
     }
-    else 
+    else if (dataType = "ENTITY")
     {
-      // TODO: handle error
+      this.dataField = "entity";
     }
 
     // retrieve the last text pushed to the database
