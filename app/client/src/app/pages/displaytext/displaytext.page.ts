@@ -45,11 +45,13 @@ export class DisplaytextPage implements OnInit {
     };
     let serverUrl = 'https://klucth-app.herokuapp.com/watson';
     this.http.post(serverUrl, data, {headers: header, responseType: 'json'})
-      .subscribe(response => {
+      .subscribe(async response => {
         console.log("http response: ", response);
-        this.firebaseService.uploadImageData('ENTITY', response, this.docID);
-        this.firebaseService.hideLoader();
-        this.router.navigateByUrl('entityanalysis');
+        await this.firebaseService.uploadImageData('ENTITY', response, this.docID)
+          .then( res => {
+            this.firebaseService.hideLoader();
+            this.router.navigateByUrl('entityanalysis');
+          })
       });
   }
 
