@@ -17,7 +17,7 @@ echo "${GREEN}==> Installing Nest..."
 npm install -g @nestjs/cli
 
 # Ionic and cordova
-cd ../client
+cd ./client
 pwd
 echo "${GREEN}==> Installing Ionic and cordova dependencies..."
 npm install -g cordova ionic
@@ -30,8 +30,8 @@ echo "${GREEN}==> Installing Firebase..."
 npm install firebase-tools -g
 npm install angularfire2 firebase --save 
 
-# Google Vision
-cd ../server
+# Node js
+cd ./server
 pwd
 # # npm dependencies
 # pwd
