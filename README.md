@@ -42,7 +42,6 @@ These instructions will get you a copy of the project up and running on your loc
 ### App Prerequisites
 
 * Android device to run the application
-* Latest stable Node release (12+). Use [nvm](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/)
 
 ### Installation 
 You can install a live version of the app by downloading the APK onto your android device. 
