@@ -13,6 +13,7 @@ export class DisplaytextPage implements OnInit {
 
   imageText: string;
   docID: number;
+  entityData: any;
 
   constructor(private router: Router, private firebaseService: FirebaseService, private storage: Storage,
               private http: HttpClient) { }
@@ -46,8 +47,9 @@ export class DisplaytextPage implements OnInit {
     let serverUrl = 'https://klucth-app.herokuapp.com/watson';
     this.http.post(serverUrl, data, {headers: header, responseType: 'json'})
       .subscribe(async response => {
-        console.log("http response: ", response);
-        await this.firebaseService.uploadImageData('ENTITY', response, this.docID)
+        this.entityData = response;
+        console.log("http response: ", this.entityData);
+        await this.firebaseService.uploadImageData('ENTITY', this.entityData, this.docID)
           .then( res => {
             this.firebaseService.hideLoader();
             this.router.navigateByUrl('entityanalysis');
