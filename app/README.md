@@ -3,11 +3,31 @@
   <img src="../logo.png" alt="Klutch logo"/>
 </p>
 
+Table of Contents
+---
+- [What is Klutch?](#what-is-klutch)
+- [High-Level Architecture](#high-level-architecture)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Development Set-up](#development-set-up)
+- [Deployment](#deployment)
+  - [Continous Integration](#continous-integration)
+  - [Logging and exceptions](#logging-and-exceptions)
+  - [Backend deployment](#backend-deployment)
+  - [App build](#app-build)
+- [Tech Stack](#tech-stack)
+- [Troubleshooting](#troubleshooting)
+- [Decision Log](#decision-log)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
+
+
 ## What is Klutch?
-Klutch a mobile application that digitizes medical notes saving health professionals time and helping them help better.
+Klutch is a mobile application that digitizes medical notes, with the aim of saving health professionals time and allowing them to spend it where it counts the most: patient care.
 
-## Architecture 
-
+## High-Level Architecture 
+<img src="./architecture-diagram.png" width=800/>
 
 
 ## Getting Started
@@ -75,7 +95,7 @@ Logging is implemented using LogDNA. You can view a screenshot of the dashboard 
 
 Exceptions are tracked using Sentry. You can view a screenshot of the dashboard [here](https://drive.google.com/open?id=1oWjTR3NZCPBQN03FKJp9LXwT9RrCw4bF)
 
-### Backend deployments
+### Backend deployment
 Done through Heroku, our backend is hosted here ```https://klucth-app.herokuapp.com/ ```
 
 Heroku git remote: ``` https://git.heroku.com/klucth-app.git```
@@ -98,9 +118,9 @@ You can then build the android app by following these commands
 $ cd app/server
 $ ionic cordova build android
 ```
-An apk file will be generated in this path ```platforms/android/app/build/outputs/apk/debug/app-debug.apk```
+An apk file will be generated in this path: ```platforms/android/app/build/outputs/apk/debug/app-debug.apk```
 
-you can directly install it to your device using [ADB](https://developer.android.com/studio/command-line/adb?gclid=Cj0KCQiA2vjuBRCqARIsAJL5a-I7Vc9tUXbm1p5mqz2mg02VmFo_qsZ7U65t6t95rh45bkr6N7Z6E6waAt5WEALw_wcB)
+You can directly install it to your device using [ADB](https://developer.android.com/studio/command-line/adb?gclid=Cj0KCQiA2vjuBRCqARIsAJL5a-I7Vc9tUXbm1p5mqz2mg02VmFo_qsZ7U65t6t95rh45bkr6N7Z6E6waAt5WEALw_wcB)
 ```
 $ adb install platforms/android/app/build/outputs/apk/debug/app-debug.apk
 ```
@@ -108,17 +128,17 @@ $ adb install platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
 ###
 
-## Built with
-You can refer to the [service.yml](./service.yml) file to see where some of those services are used
+## Tech Stack
+You can refer to the [service.yml](./service.yml) file to see where some of these services are used
 
-* [NEST js](https://nestjs.com/) - A progressive Node.js framework for building efficient, reliable and scalable server-side applications.
+* [NEST.js](https://nestjs.com/) - A progressive Node.js framework for building efficient, reliable and scalable server-side applications.
 * [Ionic](https://ionicframework.com/) - Hybrid mobile application framework
-* [Heroku](https://www.heroku.com) - platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+* [Heroku](https://www.heroku.com) - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 * [Firebase](https://firebase.google.com/docs/database) - Service that stores and syncs data with a NoSQL cloud database.
-* [Google Vision AI](https://cloud.google.com/vision/) - Assign labels to images and quickly classify them into millions of predefined categories. 
+* [Google Vision API](https://cloud.google.com/vision/) - Detect texts in images using Optical Character Recognition. 
 * [IBM Watson](https://cloud.ibm.com/apidocs/natural-language-understanding/natural-language-understanding?code=node#introduction) - Service that provides NLP extraction functionality from unstructured data.
-* [LogDNA](https://logdna.com) - a cloud-services-based server-log management and analysis tool.
-* [Github Actions](https://github.com/actions) - used to set up a CI action
+* [LogDNA](https://logdna.com) - A cloud services-based server-log management and analysis tool.
+* [Github Actions](https://github.com/actions) - Used to set up a CI action
 * [Sentry](https://sentry.io) - Self-hosted and cloud-based error monitoring that helps software teams discover, triage, and prioritize errors in real-time.
 
 #### Debugging tools
@@ -129,9 +149,18 @@ You can refer to the [service.yml](./service.yml) file to see where some of thos
 
 ## Troubleshooting
 
-* Heroku's free plan lets the site to "shut down" if inactive, so the first request will take sometime to go through. You can avoid this by pinging https://klucth-app.herokuapp.com/ directly before testing
+* With Heroku's free plan, the site will "shut down" after a certain period of inactivity, so the first request will take some time to go through. You can avoid this by pinging https://klucth-app.herokuapp.com/ directly before testing
 
 ## Decision Log
+* We decided to integrate our MVP with Cerner EHR because this is the EHR that is used by our main Subject Matter Expert.
+* Third party APIs:
+  * We pivoted from using Tesseract to Google Vision because the latter has a higher accuracy for OCR.
+  * Instead of using another Google Service, we also pivoted to using IBM Watson for NLP, since the latter has a higher accuracy in this area.
+* Backend:
+  * We decided to use NestJS for our backend because it supports TypeScript, which makes it easier to align it with our frontend. Furthermore, it also provides abstraction for common Node.js frameworks (e.g., Express).
+  * We also handle all third-party API calls in our backend because Google Vision and IBM Watson are not designed to be called from the client side.
+* For storage and database, we decided to use Firebase because it comes with our Google API subscription. Furthermore, it employs a serverless architecture that allows real-time updates and easy retrieval of data from the client side.
+* Finally, we decided to host our backend on Heroku because .... *TODO*
 
 ## Authors
 
