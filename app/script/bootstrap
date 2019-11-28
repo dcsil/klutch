@@ -13,20 +13,20 @@ CLEAR_LINE='\r\033[K'
 
 # Nest
 pwd
-echo "==> Installing Nest..."
+echo "${GREEN}==> Installing Nest..."
 npm install -g @nestjs/cli
 
 # Ionic and cordova
 cd ../client
 pwd
-echo "==> Installing Ionic and cordova dependencies..."
+echo "${GREEN}==> Installing Ionic and cordova dependencies..."
 npm install -g cordova ionic
 ionic cordova plugin add cordova-plugin-camera
 npm install --save @ionic-native/camera
 
 # Firebase
 pwd
-echo "==> Installing Firebase..."
+echo "${GREEN}==> Installing Firebase..."
 npm install firebase-tools -g
 npm install angularfire2 firebase --save 
 
@@ -37,6 +37,3 @@ pwd
 # pwd
 echo "==> Installing client npm dependencies…"
 npm install
-
-
-

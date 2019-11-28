@@ -18,6 +18,11 @@ var map = {
 		"common",
 		"pages-displaytext-displaytext-module"
 	],
+	"./pages/entityanalysis/entityanalysis.module": [
+		"./src/app/pages/entityanalysis/entityanalysis.module.ts",
+		"common",
+		"pages-entityanalysis-entityanalysis-module"
+	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
 		"common",
@@ -502,6 +507,7 @@ const routes = [
     { path: 'displayimage', loadChildren: './pages/displayimage/displayimage.module#DisplayimagePageModule' },
     { path: 'displaytext', loadChildren: './pages/displaytext/displaytext.module#DisplaytextPageModule' },
     { path: 'success', loadChildren: './pages/success/success.module#SuccessPageModule' },
+    { path: 'entityanalysis', loadChildren: './pages/entityanalysis/entityanalysis.module#EntityanalysisPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -727,7 +733,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/sonata/k/klutch/app/client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/shawneerizqa/Projects/klutch/app/client/src/main.ts */"./src/main.ts");
 
 
 /***/ })
