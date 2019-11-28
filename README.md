@@ -11,3 +11,4 @@ Table of Contents
 
 - [People](./team/)
 - [Contributing](./contributing.md)
+- [App README.md](./app/README.md)
