@@ -32,7 +32,7 @@ npm install firebase-tools -g
 npm install angularfire2 firebase --save 
 
 # Node js
-cd ./server
+cd ../server
 pwd
 # # npm dependencies
 # pwd
