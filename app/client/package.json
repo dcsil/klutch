@@ -37,6 +37,7 @@
     "firebase": "^7.4.0",
     "g": "^2.0.1",
     "rxjs": "~6.5.1",
+    "sentry-cordova": "^0.16.2",
     "tesseract.js": "^1.0.19",
     "tslib": "^1.9.0",
     "webpack-dev-server": "^3.9.0",
@@ -73,8 +74,8 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.5"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -90,10 +91,14 @@
       "cordova-plugin-camera": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "sentry-cordova": {}
     },
     "platforms": [
       "android"
     ]
+  },
+  "config": {
+    "ionic_generate_source_map": "true"
   }
 }

@@ -17,6 +17,22 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
+import { ErrorHandler } from '@angular/core';
+import * as Sentry from 'sentry-cordova';
+
+Sentry.init({ dsn: 'https://a8ccec7550114f019b2557b8c25f293a@sentry.io/1836850' });
+
+export class SentryIonicErrorHandler extends ErrorHandler {
+  handleError(error) {
+    super.handleError(error);
+    try {
+      Sentry.captureException(error.originalError || error);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,6 +50,7 @@ import { environment } from '../environments/environment';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: ErrorHandler, useClass: SentryIonicErrorHandler },
     Camera
   ],
   bootstrap: [AppComponent]
