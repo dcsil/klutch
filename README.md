@@ -10,8 +10,9 @@ Table of Contents
 - [What is Klutch?](#what-is-klutch)
 - [High-Level Architecture](#high-level-architecture)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
+  - [App Prerequisites](#app-prerequisites)
   - [Installation](#installation)
+  - [Development Prerequisites](#development-prerequisites)
   - [Development Set-up](#development-set-up)
 - [Deployment](#deployment)
   - [Continous Integration](#continous-integration)
@@ -38,9 +39,10 @@ Klutch is a mobile application that digitizes medical notes, with the aim of sav
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### App Prerequisites
 
 * Android device to run the application
+* Latest stable Node release (12+). Use [nvm](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/)
 
 ### Installation 
 You can install a live version of the app by downloading the APK onto your android device. 
@@ -51,11 +53,24 @@ Link to APK here: <https://drive.google.com/open?id=1rA8wtZNdgu-RieI0Owev-02Sh5K
 
 Please open and install the above link with your android device
 
+### Development Prerequisites
+Before starting please enure you have the latest stable Node release (12+) by running the following 
+```
+node -v
+```
+If not, install [nvm](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/) and run the following command
+```
+nvm use stable
+```
 ### Development Set-up
 
 1. Clone this repo
 2. Navigate to the app directory: `cd klutch/app`
 3. run bootstrap script: `script/bootstrap`
+  - if you run into `permission denied` error, try running the following command:
+  ```
+  chmod u+x script/bootstrap
+  ```
 4. Set up backend server
 5. Set up app/frontend
 
@@ -68,10 +83,11 @@ Navigate to the app/server/ directory and run the server from command line:
 #### Frontend/App Set-up
 Now that Backend server is setup, we can run our app!
 
-Navigate to the app/client directory and run the app from the command line:
+Open a new terminal window and navigate to the klutch/app/client directory then run the app from the command line:
         ```
-        $ ionic serve --devapp
+        $ ionic serve
         ```
+Please note that the CSS will not be accurate on a webview, if you are doing CSS development, try deploying on a real device using DevApp as instructed in the upcoming debug section.
 
 #### Debugging
 Both frontend and backend environments have live reloading enabled. 
@@ -92,7 +108,7 @@ To test native features (such as camera) There are two ways to do this:
 ## Deployment
 ### Continous Integration 
 
-Using Github actions we have a CI script for the frontend here, and the backend here ADD LINK
+Using Github actions we have a CI script for the frontend [here](https://github.com/dcsil/klutch/blob/master/.github/workflows/ionic.yml), and the backend [here](https://github.com/dcsil/klutch/blob/master/.github/workflows/nodejs.yml)
 
 ### Logging and exceptions 
 Logging is implemented using LogDNA. You can view a screenshot of the dashboard [here](https://drive.google.com/open?id=1lgJzBo6tyD-u23j4glsOaeqkU3N2YFol)
@@ -153,6 +169,7 @@ You can refer to the [service.yml](./service.yml) file to see where some of thes
 
 ## Troubleshooting
 
+* Please enure you have the latest stable node version installed as per instructed in our Dev Prerequesite section 
 * With Heroku's free plan, the site will "shut down" after a certain period of inactivity, so the first request will take some time to go through. You can avoid this by pinging https://klucth-app.herokuapp.com/ directly before testing
 
 ## Decision Log
