@@ -20,7 +20,6 @@ export class FirebaseService {
   data: string;
   docID: number;
   unsub: any;
-  ip: string = "100.65.108.71";
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -143,7 +142,6 @@ export class FirebaseService {
     else if (dataType == 'ENTITY') {
       patientRef.update({ entity: data} );
     }
-
   }
 
   /**
@@ -164,12 +162,12 @@ export class FirebaseService {
       id: 1,
       image: imageUrl
     };
-    let serverUrl = `https://klucth-app.herokuapp.com/vision`
+    let serverUrl = 'https://klucth-app.herokuapp.com/vision'
     this.http.post(serverUrl, data, {headers: header, responseType: 'text'})
-      .subscribe(response => {
+      .subscribe(async response => {
         this.imageText = response;
         console.log("http response: ", this.imageText);
-        this.uploadImageData('TEXT', this.imageText, docID)
+        await this.uploadImageData('TEXT', this.imageText, docID)
           .then(res => {
               this.hideLoader();
               this.router.navigateByUrl(`displaytext`);

@@ -13,7 +13,7 @@ export class DisplaytextPage implements OnInit {
 
   imageText: string;
   docID: number;
-  ip: "100.67.31.157";
+  entityData: any;
 
   constructor(private router: Router, private firebaseService: FirebaseService, private storage: Storage,
               private http: HttpClient) { }
@@ -44,13 +44,16 @@ export class DisplaytextPage implements OnInit {
       id: 1,
       text: imageText
     };
-    let serverUrl = 'http://100.67.31.157:3000/watson';
+    let serverUrl = 'https://klucth-app.herokuapp.com/watson';
     this.http.post(serverUrl, data, {headers: header, responseType: 'json'})
-      .subscribe(response => {
-        console.log("http response: ", response);
-        this.firebaseService.uploadImageData('ENTITY', response, this.docID);
-        this.firebaseService.hideLoader();
-        this.router.navigateByUrl('entityanalysis');
+      .subscribe(async response => {
+        this.entityData = response;
+        console.log("http response: ", this.entityData);
+        await this.firebaseService.uploadImageData('ENTITY', this.entityData, this.docID)
+          .then( res => {
+            this.firebaseService.hideLoader();
+            this.router.navigateByUrl('entityanalysis');
+          })
       });
   }
 
@@ -58,6 +61,7 @@ export class DisplaytextPage implements OnInit {
    * Navigates to success page.
    */
   showEntityAnalysis() {
+    console.log("edited text: ", this.imageText);
     this.getEntityAnalysis(this.imageText);
   }
 

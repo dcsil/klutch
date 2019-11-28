@@ -10,8 +10,9 @@ Table of Contents
 - [What is Klutch?](#what-is-klutch)
 - [High-Level Architecture](#high-level-architecture)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
+  - [App Prerequisites](#app-prerequisites)
   - [Installation](#installation)
+  - [Development Prerequisites](#development-prerequisites)
   - [Development Set-up](#development-set-up)
 - [Deployment](#deployment)
   - [Continous Integration](#continous-integration)
@@ -21,6 +22,7 @@ Table of Contents
 - [Tech Stack](#tech-stack)
 - [Troubleshooting](#troubleshooting)
 - [Decision Log](#decision-log)
+- [Resources](#resources)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
 - [People](./team/)
@@ -31,14 +33,14 @@ Table of Contents
 Klutch is a mobile application that digitizes medical notes, with the aim of saving health professionals time and allowing them to spend it where it counts the most: patient care.
 
 ## High-Level Architecture 
-<img src="./architecture-diagram.png" width=800/>
+<img src="./app/architecture-diagram.png" width=800/>
 
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### App Prerequisites
 
 * Android device to run the application
 
@@ -47,15 +49,28 @@ You can install a live version of the app by downloading the APK onto your andro
 
 Please ensure that your device allows for downloading apks from unknown sources. If it's not, then follow this  [guide.](https://www.expressvpn.com/support/vpn-setup/enable-apk-installs-android/)
 
-Link to APK here: <https://drive.google.com/open?id=1rA8wtZNdgu-RieI0Owev-02Sh5KPnt9U>
+Link to APK here: <https://drive.google.com/drive/folders/1GatY3stSDhzZMppQWwpu60rX14f1oXDQ?usp=sharing>
 
-Please open and install the above link with your android device
+Please open and install the above link with your android device.
 
+### Development Prerequisites
+Before starting please enure you have the latest stable Node release (12+) by running the following 
+```
+node -v
+```
+If not, install [nvm](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/) and run the following command
+```
+nvm use stable
+```
 ### Development Set-up
 
 1. Clone this repo
 2. Navigate to the app directory: `cd klutch/app`
 3. run bootstrap script: `script/bootstrap`
+  - if you run into `permission denied` error, try running the following command:
+  ```
+  $ chmod u+x script/bootstrap
+  ```
 4. Set up backend server
 5. Set up app/frontend
 
@@ -64,14 +79,21 @@ Navigate to the app/server/ directory and run the server from command line:
    ``` 
    $ npm run start:dev
    ```
+   
+to view tests, run ``` npm test ```
 
 #### Frontend/App Set-up
 Now that Backend server is setup, we can run our app!
 
-Navigate to the app/client directory and run the app from the command line:
+Open a new terminal window and navigate to the klutch/app/client directory then run the app from the command line:
+
         ```
-        $ ionic serve --devapp
+        $ ionic serve
         ```
+        
+Please note that the CSS will not be accurate on a webview, if you are doing CSS development, try deploying on a real device using DevApp as instructed in the upcoming debugging section.
+
+to view tests, run ``` npm test ```
 
 #### Debugging
 Both frontend and backend environments have live reloading enabled. 
@@ -92,7 +114,7 @@ To test native features (such as camera) There are two ways to do this:
 ## Deployment
 ### Continous Integration 
 
-Using Github actions we have a CI script for the frontend here, and the backend here ADD LINK
+Using Github actions we have a CI script for the frontend [here](https://github.com/dcsil/klutch/blob/master/.github/workflows/ionic.yml), and the backend [here](https://github.com/dcsil/klutch/blob/master/.github/workflows/nodejs.yml)
 
 ### Logging and exceptions 
 Logging is implemented using LogDNA. You can view a screenshot of the dashboard [here](https://drive.google.com/open?id=1lgJzBo6tyD-u23j4glsOaeqkU3N2YFol)
@@ -107,17 +129,9 @@ Heroku git remote: ``` https://git.heroku.com/klucth-app.git```
 Push your server changes to the heroku git remote to automatically deploy your changes. 
 
 ### App build
+Make sure you have android studio installed, for more details, follow "Build for Android" section of this [tutorial](https://ionicacademy.com/getting-started-with-ionic-4/#crayon-5ddfdf9dbb3de896167362)
 
-First, make sure your your path points to the android sdk:
-```
-ANDROID_HOME=[path to android sdk]
-```
-or run the following command on your current terminal session:
-```
-$ export ANDROID_HOME=~/Library/Android/sdk && export PATH=${PATH}:${ANDROID_HOME}/tools && export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-```
-
-You can then build the android app by following these commands
+You can build the android app by following these commands
 ```
 $ cd app/server
 $ ionic cordova build android
@@ -128,12 +142,18 @@ You can directly install it to your device using [ADB](https://developer.android
 ```
 $ adb install platforms/android/app/build/outputs/apk/debug/app-debug.apk
 ```
-
-
-###
+#### NOTE!
+Make sure your path points to the android sdk:
+```
+ANDROID_HOME=[path to android sdk]
+```
+or run the following command on your current terminal session:
+```
+$ export ANDROID_HOME=~/Library/Android/sdk && export PATH=${PATH}:${ANDROID_HOME}/tools && export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+```
 
 ## Tech Stack
-You can refer to the [service.yml](./service.yml) file to see where some of these services are used
+You can refer to the [service.yml](.https://github.com/dcsil/klutch/blob/master/app/service.yml) file to see where some of these services are used
 
 * [NEST.js](https://nestjs.com/) - A progressive Node.js framework for building efficient, reliable and scalable server-side applications.
 * [Ionic](https://ionicframework.com/) - Hybrid mobile application framework
@@ -153,6 +173,7 @@ You can refer to the [service.yml](./service.yml) file to see where some of thes
 
 ## Troubleshooting
 
+* Please enure you have the latest stable node version installed as per instructed in our Dev Prerequesite section 
 * With Heroku's free plan, the site will "shut down" after a certain period of inactivity, so the first request will take some time to go through. You can avoid this by pinging https://klucth-app.herokuapp.com/ directly before testing
 
 ## Decision Log
@@ -164,7 +185,11 @@ You can refer to the [service.yml](./service.yml) file to see where some of thes
   * We decided to use NestJS for our backend because it supports TypeScript, which makes it easier to align it with our frontend. Furthermore, it also provides abstraction for common Node.js frameworks (e.g., Express).
   * We also handle all third-party API calls in our backend because Google Vision and IBM Watson are not designed to be called from the client side.
 * For storage and database, we decided to use Firebase because it comes with our Google API subscription. Furthermore, it employs a serverless architecture that allows real-time updates and easy retrieval of data from the client side.
-* Finally, we decided to host our backend on Heroku because .... *TODO*
+* For CI, we decided to use github actions and set up a CI workflow. We set 2 different workflows for backend and front end. 
+* Finally, we decided to host our backend on Heroku due to its ease of use and to benefit from the loggin add-ons (Sentry, LogDNA)
+
+## Resources 
+We kept track of resources that helped us in this [document](https://docs.google.com/document/d/1Wfcz8Ou_f0aBuoziMjZjy_4KWuOTrKi3NVA5W0c0t84/edit?usp=sharing)
 
 ## Authors
 

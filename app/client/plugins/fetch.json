@@ -64,5 +64,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "sentry-cordova": {
+    "source": {
+      "type": "registry",
+      "id": "sentry-cordova@^0.16.2"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
