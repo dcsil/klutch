@@ -11,11 +11,6 @@ YELLOW='\033[0;33m'
 NO_COLOR='\033[0m'
 CLEAR_LINE='\r\033[K'
 
-# # npm dependencies
-# pwd
-# echo "==> Installing npm dependencies…"
-# npm install
-
 # Nest
 pwd
 echo "==> Installing Nest..."
@@ -38,7 +33,10 @@ npm install angularfire2 firebase --save
 # Google Vision
 cd ../server
 pwd
-echo "==> Installing Google Vision..."
-npm install @google-cloud/vision -s
+# # npm dependencies
+# pwd
+echo "==> Installing client npm dependencies…"
+npm install
+
 
 
