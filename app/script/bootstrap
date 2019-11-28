@@ -22,6 +22,7 @@ pwd
 echo "${GREEN}==> Installing Ionic and cordova dependencies..."
 npm install -g cordova ionic
 ionic integrations enable cordova --add
+n
 ionic cordova plugin add cordova-plugin-camera
 npm install --save @ionic-native/camera
 
