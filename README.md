@@ -32,6 +32,9 @@ Table of Contents
 ## What is Klutch?
 Klutch is a mobile application that digitizes medical notes, with the aim of saving health professionals time and allowing them to spend it where it counts the most: patient care.
 
+a video demo can be found here:
+https://drive.google.com/open?id=1ADPvhllSiTYxSDb0GsSC3POdwrNrlbyU 
+
 ## High-Level Architecture 
 <img src="./app/architecture-diagram.png" width=800/>
 
